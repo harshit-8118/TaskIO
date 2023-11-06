@@ -1,0 +1,44 @@
+class Solution{
+  public:
+      int n, m;
+      bool safe(int i, int j){
+          if(i >= n or i < 0 or j >= m or j < 0){
+              return false;
+          }
+          return true;
+      }
+      vector<int> matrixSum(int N, int M, vector<vector<int>> mat, int q, vector<int> queries[])
+      {
+          // code here
+          n = N;
+          m = M;
+          vector<int> res;
+          int x[] = {1, 1, -1, -1, 1, -1, 0, 0};
+          int y[] = {1, -1, -1, 1, 0, 0, 1, -1};
+          int x2[] = {2, 2, -2, -2, 2, -2, 0, 0, 1, 1, 2, 2, -1, -1, -2, -2};
+          int y2[] = {2, -2, 2, -2, 0, 0, 2, -2, 2, -2, 1, -1, 2, -2, 1, -1};
+          for(auto l = 0; l < q; l++){
+              auto z = queries[l];
+                  int sum = 0;
+              if(z[0] == 1){
+                  int i = z[1], j = z[2];
+                  for(int k = 0; k < 8; k++){
+                      if(safe(i + x[k], j + y[k])){
+                          sum += mat[i + x[k]][j + y[k]];
+                      }
+                  }
+                  
+              }else{
+                  int i = z[1], j = z[2];
+                  for(int k = 0; k < 16; k++){
+                      if(safe(i + x2[k], j + y2[k])){
+                          sum += mat[i + x2[k]][j + y2[k]];
+                      }
+                  }
+              }
+              
+                  res.push_back(sum);
+          }
+          return res;
+      }
+  };
