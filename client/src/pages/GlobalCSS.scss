@@ -1,0 +1,75 @@
+.login-register-box {
+  width: 35%;
+  border: 1px solid #fff;
+  margin: 50px auto;
+  position: relative;
+  span {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .loginModal {
+    width: 100%;
+    border: 1px solid black;
+    margin: 75px auto 0px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2 {
+      margin: 8px;
+      color: rgb(64, 63, 63);
+    }
+    .input-block {
+      width: 90%;
+      position: relative;
+      margin: 5px 0px;
+      input {
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+        margin: 3px 0;
+      }
+      input:focus {
+        outline: 1px;
+      }
+      .form-error {
+        font-size: 12px;
+        color: rgb(202, 87, 87);
+      }
+    }
+    .modal-buttons {
+      width: 95%;
+      padding: 5px 13px;
+      margin-top: 5px;
+      p {
+        color: #0593d0;
+        font-size: 14px;
+        margin: 4px 0;
+      }
+      .input-button {
+        padding: 10px;
+        border: 1px solid #00a5ec;
+        background-color: #00a5ec;
+        color: #fff;
+        font-weight: 300px;
+        width: 100%;
+        letter-spacing: 1px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+    }
+    .login-sign-up {
+      font-size: 13px;
+      margin: 10px;
+      button {
+        font-weight: 600;
+        font-size: 14px;
+        color: #00a5ec;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+}

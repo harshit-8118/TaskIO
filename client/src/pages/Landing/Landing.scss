@@ -1,0 +1,91 @@
+.landing {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  .pop-login-register {
+    position: absolute;
+    z-index: 1;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 1),
+      rgba(255, 255, 255, 1)
+    );
+  }
+
+  .pop-login-register.open {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .landing-header {
+    .navbar {
+      height: 60px;
+      display: flex;
+      flex-direction: row;
+      box-shadow: 0px 6px 0px -5px rgba(237, 237, 237, 1);
+      align-items: center;
+      justify-content: space-between;
+      .navbar-left {
+        img{
+            width: 120px;
+            height: auto;
+            margin-left: 30px;
+        }
+      }
+      .navbar-right {
+        margin: 20px;
+        .login-btn {
+          background: none;
+          padding: 10px;
+          border: 1px solid black;
+          letter-spacing: 1px;
+          border-radius: 5px;
+          width: 80px;
+          cursor: pointer;
+        }
+        .register-btn {
+          margin-left: 10px;
+          padding: 10px;
+          border-radius: 5px;
+          border: 1px solid #00a5ec;
+          background-color: #00a5ec;
+          color: #fff;
+          font-weight: 300px;
+          width: 100px;
+          letter-spacing: 1px;
+          font-weight: 600;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .landing-body {
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 52px;
+    }
+    .demo-cards {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: center;
+      margin-top: 30px;
+      .card {
+        margin: 30px;
+        img {
+          width: 300px;
+          height: 200px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
