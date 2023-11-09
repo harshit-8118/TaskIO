@@ -1,6 +1,21 @@
 import axios from 'axios';
 import {baseUrl} from '../../App';
-import { createNoteFailure, createNoteStart, createNoteSuccess, deleteNoteFailure, deleteNoteStart, deleteNoteSuccess, getNotesFailure, getNotesStart, getNotesSuccess, updateNoteFailure, updateNoteStart, updateNoteSuccess } from './NotesAction';
+import { cleanNotesOnLogout, createNoteFailure, createNoteStart, createNoteSuccess, deleteNoteFailure, deleteNoteStart, deleteNoteSuccess, getNotesFailure, getNotesStart, getNotesSuccess, setInitialNotesFailure, setInitialNotesStart, setInitialNotesSuccess, updateNoteFailure, updateNoteStart, updateNoteSuccess } from './NotesAction';
+
+export const setInitialNotes = async (noteId, dispatch) => {
+    dispatch(setInitialNotesStart())
+    try{
+        const res = await axios.get(baseUrl + `notes/find/${noteId}`);
+        dispatch(setInitialNotesSuccess(res.data));
+
+    }catch(err){
+        dispatch(setInitialNotesFailure());
+    }
+}
+
+export const cleanNoteOnLogout = async (dispatch) => {
+    dispatch(cleanNotesOnLogout());
+}
 
 export const getNotes = async (userID, dispatch) => {
     dispatch(getNotesStart());

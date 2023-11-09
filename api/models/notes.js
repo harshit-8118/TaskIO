@@ -9,9 +9,9 @@ const getCurrentDatePlus7Days = () => {
 const noteSchema = mongoose.Schema(
     {
         title: { type: String, required: true },
-        description: { type: String, required: true },
+        description: { type: String },
         admin_id:{type: String, required: true},
-        url: { type: String, default: null },
+        url: { type: Array, default: [] },
         done: { type: Boolean, default: false },
         important: { type: Boolean, default: false },
         completionDate: { type: Date, default: getCurrentDatePlus7Days } 

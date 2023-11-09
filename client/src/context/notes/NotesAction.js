@@ -1,3 +1,20 @@
+export const setInitialNotesStart = () => ({
+    type: "SET_NOTES_START"
+})
+
+export const setInitialNotesSuccess = (note) => ({
+    type: "SET_NOTES_SUCCESS",
+    payload: note
+})
+
+export const setInitialNotesFailure = () => ({
+    type: "SET_NOTES_FAILURE"
+})
+
+export const cleanNotesOnLogout = () => ({
+    type: "CLEAN_NOTE_LOGOUT"
+})
+
 export const getNotesStart = () => ({
     type: "GET_NOTES_START"
 })

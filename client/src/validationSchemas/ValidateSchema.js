@@ -15,3 +15,8 @@ export const registerSchema = Yup.object({
     .required("Please confirm your password")
     .oneOf([Yup.ref("password")], "Passwords must match"),
 });
+
+export const taskSchema = Yup.object({
+  title: Yup.string().min(8, "too short...").required("Field can't be empty"),
+  
+})

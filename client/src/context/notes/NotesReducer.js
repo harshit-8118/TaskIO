@@ -1,5 +1,20 @@
 export const NotesReducer = (state, action) => {
     switch(action.type){
+        case "SET_NOTES_START": return {
+            ...state,
+            isFetching:true,
+            error:false
+        };
+        case "SET_NOTES_SUCCESS": return {
+            notes:[...state.notes, action.payload],
+            isFetching:false,
+            error:false
+        };
+        case "SET_NOTES_FAILURE": return {
+            ...state,
+            isFetching:false,
+            error:true
+        };
         case "GET_NOTES_START": return {
             notes:[],
             isFetching:true,
@@ -66,6 +81,11 @@ export const NotesReducer = (state, action) => {
             isFetching:false,
             error:true
         };
+        case "CLEAN_NOTE_LOGOUT" : return {
+            notes: [],
+            isFetching: false,
+            error: false
+        }
         default: return {
             ...state
         }

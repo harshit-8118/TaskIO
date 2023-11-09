@@ -1,16 +1,13 @@
 import React, { useContext } from "react";
-import { AuthContext } from "../../context/user/UserContext";
-import { Logout } from "../../context/user/UserApi";
+import Navbar from "../../components/Navbar/Navbar";
+import TaskComp from "../../components/TaskComp";
 
 function Home() {
-  const { dispatch } = useContext(AuthContext);
-  const handleLogout = () => {
-    Logout(dispatch);
-  };
   return (
     <div>
-      Home
-      <button onClick={handleLogout}>Logout</button>
+      <Navbar />
+      <TaskComp />
+
     </div>
   );
 }

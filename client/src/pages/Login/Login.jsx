@@ -8,9 +8,11 @@ import {
 import { login_user } from "../../context/user/UserApi";
 import { AuthContext } from "../../context/user/UserContext";
 import { useNavigate } from "react-router-dom";
+import { NotesContext } from "../../context/notes/NotesContext";
 
 function Login({ loginBtn, registerBtn, setLoginBtn, setRegisterBtn }) {
   const { user, dispatch } = useContext(AuthContext);
+  const { dispatch: notesDispatch } = useContext(NotesContext);
   const navigate = useNavigate();
   const [message, setMessage] = useState(null);
   const [disable, setDisable] = useState(false);
