@@ -11,3 +11,13 @@ export const login_fail = ()=>({
 export const logout = ()=>({
     type:"LOGOUT"
 })
+export const updateUserStart = () => ({
+    type: "UPDATE_USER_START"
+})
+export const updateUserSuccess = (user) => ({
+    type: "UPDATE_USER_SUCCESS",
+    payload: user
+})
+export const updateUserFailure = () => ({
+    type: "UPDATE_USER_FAILURE"
+})
