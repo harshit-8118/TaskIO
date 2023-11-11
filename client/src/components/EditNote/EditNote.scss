@@ -1,0 +1,154 @@
+.edit-note-container{
+    width: 70%;
+    display: flex;
+    margin: 20px auto;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 1px 1px 20px -5px black;
+    padding: 20px;
+    min-width: 520px;
+    .title-imp-done{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        .title{
+            font-size: 30px;
+            font-weight: 900;
+            border: none;
+            border-bottom: 1px solid black;
+            outline: none;
+        }
+        .imp-done{
+            display: flex;
+            align-items: center;
+            .imp, .done{
+                .outer-box {
+                    width: max-content;
+                    padding: 2px 4px;
+                    cursor: pointer;
+                    display: flex;
+                    font-size: 14px;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: rgb(226, 224, 224);
+                    margin: 1px 5px;
+                    .inner-box{
+                        margin-left: 5px;
+                        padding-left: 3px;
+                        width: 14px;
+                        height: 14px;
+                        color: #FFBF00;
+                        display: flex;
+                        border: none;
+                        background-color: inherit;
+                        border-left: 1px solid black;
+                        justify-content: center;
+                        align-items: center;
+                        .ico{
+                            font-size: 18px;
+                        }
+                    }
+                }
+                #imp{
+                    background-color: #FFFF8F;
+                }
+                #done{
+                    background-color: #7FFFD4;
+                    .ico{
+                        color: #2AAA8A;
+                    }
+                }
+                #not-done{
+                    .ico{
+                        color: green;
+                    }
+                }
+            }
+            .deleteNote{
+                color: red;
+                cursor: pointer;
+            }
+        }
+    }
+    .urls-box{
+        margin-top: 20px;
+        align-self: self-start;
+        .urls-button{
+            display: flex;
+            flex-wrap: wrap;        
+            .outer-box {
+                width: max-content;
+                padding: 2px 4px;
+                display: flex;
+                font-size: 14px;
+                border: none;
+                border-radius: 5px;
+                background-color: rgb(226, 224, 224);
+                margin: 1px 5px 1px 0px;
+                .inner-box{
+                    margin-left: 5px;
+                    cursor: pointer;
+                    padding-left: 3px;
+                    width: 14px;
+                    height: 14px;
+                    color: gray;
+                    display: flex;
+                    border: none;
+                    background-color: inherit;
+                    border-left: 1px solid black;
+                    justify-content: center;
+                    align-items: center;
+                    .del-ico{
+                        font-size: 14px;
+                    }
+                    &:hover{
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+    .input-block{
+        align-self: self-start;
+        .url-text-box{
+            border: none;
+            margin: 15px 0px 28px 0;
+            font-size: 14px;
+            outline: 1px solid black;  
+            padding: 5px 5px 5px 2px;
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+    .description{
+        width: 100%;                                                                                                                                                                                                                                                                                                                         
+        align-self: self-start;
+        white-space: pre-wrap;
+        min-height: 250px;   
+        resize: vertical;     
+        overflow-wrap: break-word;
+        background-color: #36454F;
+        color: #E5E4E2;
+        font-size: 14px;
+        padding: 19px 10px;
+        align-self: center;
+    }  
+    transition: all 0.5s ease;
+    overflow: hidden;
+    .update-btn{
+        padding: 10px;
+        border: 1px solid #00a5ec;
+        background-color: #00a5ec;
+        color: #fff;
+        font-weight: 300px;
+        width: 50%;
+        margin-top: 5px;
+        letter-spacing: 1px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+}
