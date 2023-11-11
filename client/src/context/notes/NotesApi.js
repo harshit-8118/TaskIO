@@ -18,84 +18,117 @@ import {
   updateNoteStart,
   updateNoteSuccess,
 } from "./NotesAction";
-import { useContext } from "react";
-import { AuthContext } from "../user/UserContext";
 import { updateNoteUser, updateUser } from "../user/UserApi";
 
-export const setInitialNotes = async (noteId, dispatch) => {
-  dispatch(setInitialNotesStart());
-  try {
-    const res = await axios.get(baseUrl + `notes/find/${noteId}`);
-    dispatch(setInitialNotesSuccess(res.data));
-  } catch (err) {
-    dispatch(setInitialNotesFailure());
-  }
+export const setInitialNotes = (noteId, dispatch) => {
+  return new Promise(async (resolve, reject) => {
+    dispatch(setInitialNotesStart());
+    try {
+      const res = await axios.get(baseUrl + `notes/find/${noteId}`);
+      dispatch(setInitialNotesSuccess(res.data));
+      resolve(res.data);
+    } catch (err) {
+      dispatch(setInitialNotesFailure());
+      reject(err);
+    }
+  });
 };
 
-export const cleanNoteOnLogout = async (dispatch) => {
-  dispatch(cleanNotesOnLogout());
+export const cleanNoteOnLogout = (dispatch) => {
+  return new Promise(async (resolve, reject) => {
+    dispatch(cleanNotesOnLogout());
+    resolve();
+  });
 };
 
-export const getNotes = async (userID, dispatch) => {
-  dispatch(getNotesStart());
-  try {
-    const res = await axios.get(baseUrl + `notes/user/${userID}`);
-    dispatch(getNotesSuccess(res.data));
-  } catch (err) {
-    dispatch(getNotesFailure());
-  }
+export const getNotes = (userID, dispatch) => {
+  return new Promise(async (resolve, reject) => {
+    dispatch(getNotesStart());
+    try {
+      const res = await axios.get(baseUrl + `notes/user/${userID}`);
+      dispatch(getNotesSuccess(res.data));
+      resolve(res.data);
+    } catch (err) {
+      dispatch(getNotesFailure());
+      reject(err);
+    }
+  });
 };
 
-//create
-export const createNote = async (note, user, dispatch, userDispatch) => {
-  dispatch(createNoteStart());
-  try {
-    const res = await axios.post(baseUrl + `notes/register`, note);
-    dispatch(createNoteSuccess(res.data));
-    updateUser(user, userDispatch, res.data._id);
-  } catch (err) {
-    console.log(err);
-    dispatch(createNoteFailure());
-  }
+export const createNote = (note, user, dispatch, userDispatch) => {
+  return new Promise(async (resolve, reject) => {
+    dispatch(createNoteStart());
+    try {
+      const res = await axios.post(baseUrl + `notes/register`, note);
+      dispatch(createNoteSuccess(res.data));
+      updateUser(user, userDispatch, res.data._id);
+      resolve(res.data);
+    } catch (err) {
+      dispatch(createNoteFailure());
+      reject(err);
+    }
+  });
 };
 
-// update
-export const updateNote = async (note, dispatch) => {
-  dispatch(updateNoteStart());
-  try {
-    const res = await axios.put(baseUrl + `notes/${note._id}`, note);
-    dispatch(updateNoteSuccess(res.data));
-  } catch (err) {
-    dispatch(updateNoteFailure());
-  }
-};
-export const updateNoteDone = async (note, dispatch) => {
-  dispatch(updateNoteStart());
-  try {
-    const res = await axios.put(baseUrl + `notes/markdone/${note._id}`, note);
-    dispatch(updateNoteSuccess(res.data));
-  } catch (err) {
-    dispatch(updateNoteFailure());
-  }
-};
-export const updateNoteImp = async (note, dispatch) => {
-  dispatch(updateNoteStart());
-  try {
-    const res = await axios.put(baseUrl + `notes/markimp/${note._id}`, note);
-    dispatch(updateNoteSuccess(res.data));
-  } catch (err) {
-    dispatch(updateNoteFailure());
-  }
+export const updateNote = (note, dispatch) => {
+  return new Promise(async (resolve, reject) => {
+    dispatch(updateNoteStart());
+    try {
+      const res = await axios.put(baseUrl + `notes/${note._id}`, note);
+      dispatch(updateNoteSuccess(res.data));
+      resolve(res.data);
+    } catch (err) {
+      dispatch(updateNoteFailure());
+      reject(err);
+    }
+  });
 };
 
-//delete
-export const deleteNote = async (noteID, dispatch, user, userDispatch) => {
-  dispatch(deleteNoteStart());
-  try {
-    await axios.delete(baseUrl + `notes/${noteID}`);
-    dispatch(deleteNoteSuccess(noteID));
-    updateNoteUser(user, userDispatch, noteID);
-  } catch (err) {
-    dispatch(deleteNoteFailure());
-  }
+export const updateNoteDone = (note, dispatch) => {
+  return new Promise(async (resolve, reject) => {
+    dispatch(updateNoteStart());
+    try {
+      const res = await axios.put(baseUrl + `notes/markdone/${note._id}`, note);
+      dispatch(updateNoteSuccess(res.data));
+      resolve(res.data);
+    } catch (err) {
+      dispatch(updateNoteFailure());
+      reject(err);
+    }
+  });
+};
+
+export const updateNoteImp = (note, dispatch) => {
+  return new Promise(async (resolve, reject) => {
+    dispatch(updateNoteStart());
+    try {
+      const res = await axios.put(baseUrl + `notes/markimp/${note._id}`, note);
+      dispatch(updateNoteSuccess(res.data));
+      resolve(res.data);
+    } catch (err) {
+      dispatch(updateNoteFailure());
+      reject(err);
+    }
+  });
+};
+
+export const deleteNote = (noteID, dispatch, user, userDispatch) => {
+  return new Promise(async (resolve, reject) => {
+    dispatch(deleteNoteStart());
+    try {
+      updateNoteUser(user, userDispatch, noteID)
+      .then(async () => {
+          await axios.delete(baseUrl + `notes/${noteID}`);
+          dispatch(deleteNoteSuccess(noteID));
+          resolve();
+        })
+        .catch((err) => {
+          dispatch(deleteNoteFailure());
+          reject(err);
+        });
+    } catch (err) {
+      dispatch(deleteNoteFailure());
+      reject(err);
+    }
+  });
 };
