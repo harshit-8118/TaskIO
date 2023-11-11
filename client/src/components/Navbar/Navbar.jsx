@@ -1,17 +1,22 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import "../../pages/GlobalCSS.scss";
 import { AuthContext } from "../../context/user/UserContext";
 import { Logout } from "../../context/user/UserApi";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Home, Settings } from "@mui/icons-material";
 import { NotesContext } from "../../context/notes/NotesContext";
 import { cleanNoteOnLogout } from "../../context/notes/NotesApi";
 
 function Navbar() {
   const { user, dispatch } = useContext(AuthContext);
-  const { dispatch: notesDispatch} = useContext(NotesContext);
+  const { dispatch: notesDispatch } = useContext(NotesContext);
   const { notes } = useContext(NotesContext);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isActiveLink = (link) => {
+    return location.pathname === link;
+  };
 
   return (
     <div className="nav">
@@ -23,35 +28,59 @@ function Navbar() {
           />
         </div>
         <div className="navbar-middle">
-          <Link to={"/"} className="link" >
+          <Link to={"/"} className={`link ${isActiveLink("/") && "active"}`}>
             <Home />
           </Link>
-          <Link to={"/allnotes"} className="link" state={notes} >
+          <Link
+            to={"/allnotes"}
+            className={`link ${isActiveLink("/allnotes") && "active"}`}
+            state={notes}
+          >
             All
           </Link>
-          <Link to={"/impnotes"} className="link">
+          <Link
+            to={"/impnotes1"}
+            state={{ imp: true }}
+            className={`link ${isActiveLink("/impnotes1") && "active"}`}
+          >
             Important
           </Link>
-          <Link to={'/incompletenotes'} className="link">
-            incomplete
+          <Link
+            to={"/impnotes0"}
+            state={{ imp: false }}
+            className={`link ${isActiveLink("/impnotes0") && "active"}`}
+          >
+            !Important
           </Link>
-          <Link to={"/completednotes"} className="link">
-            completed
+          <Link
+            to={"/done1"}
+            state={{ don: false }}
+            className={`link ${isActiveLink("/done1") && "active"}`}
+          >
+            Incomplete
+          </Link>
+          <Link
+            to={"/done0"}
+            state={{ don: true }}
+            className={`link ${isActiveLink("/done0") && "active"}`}
+          >
+            Completed
           </Link>
         </div>
         <div className="navbar-right">
+          <div className="gcse-search"></div>
           <abbr title="Settings" className="settings-btn">
             <Link to={"/settings"} state={{ user }} className="link">
-              <Settings className="settings-ico"/>
+              <Settings className="settings-ico" />
             </Link>
           </abbr>
           <button
             className="logout-btn"
             onClick={() => {
-              if(window.confirm(`You will be logout, ${user.username}`)){
+              if (window.confirm(`You will be logout, ${user.username}`)) {
                 Logout(dispatch);
                 cleanNoteOnLogout(notesDispatch);
-                navigate('/')
+                navigate("/");
               }
             }}
           >

@@ -8,11 +8,9 @@ import {
 import { login_user } from "../../context/user/UserApi";
 import { AuthContext } from "../../context/user/UserContext";
 import { useNavigate } from "react-router-dom";
-import { NotesContext } from "../../context/notes/NotesContext";
 
 function Login({ loginBtn, registerBtn, setLoginBtn, setRegisterBtn }) {
   const { user, dispatch } = useContext(AuthContext);
-  const { dispatch: notesDispatch } = useContext(NotesContext);
   const navigate = useNavigate();
   const [message, setMessage] = useState(null);
   const [disable, setDisable] = useState(false);
@@ -34,16 +32,18 @@ function Login({ loginBtn, registerBtn, setLoginBtn, setRegisterBtn }) {
     validationSchema: loginSchema,
     validateOnBlur: false,
     onSubmit: (values, action) => {
-      login_user(values, dispatch);
-      setTimeout(()=>{
-        setMessage("fetching info...")
-      }, 100)
-      setTimeout(()=>{
-        setMessage("Login failed");
-      }, 5000)
-      setMessage("");
+      setMessage("Fetching info...")
+      login_user(values, dispatch).then((resp) => {
+        setMessage("Login success.")
+      }).catch((err) => {
+        setMessage("Login failed.")
+      }).finally(() => {
+        setTimeout(() => {
+          setMessage("");
+        }, 2000);
+      });
       action.setFieldValue("username", values.username);
-      action.setFieldValue("password", "");
+      action.setFieldValue("password", values.password);
     },
   });
 

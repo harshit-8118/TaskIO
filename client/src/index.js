@@ -5,6 +5,13 @@ import reportWebVitals from "./reportWebVitals";
 import AuthContextProvider from "./context/user/UserContext";
 import NotesContextProvider from "./context/notes/NotesContext";
 
+const loadGoogleSearchScript = () => {
+  const script = document.createElement('script');
+  script.src = 'https://cse.google.com/cse.js?cx=' + process.env.REACT_APP_SEARCH_ENGINE_ID;
+  script.async = true;
+  document.body.appendChild(script);
+};
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
@@ -16,7 +23,5 @@ root.render(
   </>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+loadGoogleSearchScript();
 reportWebVitals();

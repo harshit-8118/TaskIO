@@ -3,22 +3,26 @@ import Landing from "./pages/Landing/Landing";
 import Login from "./pages/Login/Login";
 import { AuthContext } from "./context/user/UserContext";
 import Home from "./pages/Home/Home";
+import './pages/GlobalCSS.scss';
 import {
   BrowserRouter as Router,
   Route,
   Routes,
   Navigate,
 } from "react-router-dom";
-import Settings from "./components/Settings";
-import AllNotes from "./components/AllNotes";
-import { cleanNoteOnLogout, getNotes, setInitialNotes } from "./context/notes/NotesApi";
+import AllNotes from "./components/AllNotes/AllNotes";
+import { cleanNoteOnLogout, setInitialNotes } from "./context/notes/NotesApi";
 import { NotesContext } from "./context/notes/NotesContext";
-import axios from "axios";
-import ViewNote from "./components/ViewNote";
+import Settings from "./components/Settings/Settings";
+import ViewNote from "./components/ViewNote/ViewNote";
+import EditNote from "./components/EditNote/EditNote";
+import ImpTasks from "./components/ImportantNotes/ImpTasks";
+import DoneTasks from "./components/CompletedNotes/DoneTasks";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   const { user } = useContext(AuthContext);
-  const { notes, dispatch} = useContext(NotesContext);
+  const { dispatch} = useContext(NotesContext);
   
   useEffect(() => {
     try{
@@ -32,13 +36,21 @@ function App() {
   return (
     <div className="App">
       <Router>
+        {user && <Navbar />}
+          <div className="other">
         <Routes>
-          <Route path="/" element={user ? <Home /> : <Landing />} />
-          <Route path="/settings" element={user ? <Settings /> : <Landing />} />
-          <Route path="/allnotes" element={user ? <AllNotes /> : <Landing />} />
-          <Route path="/view/:id" element={user ? <ViewNote /> : <Landing />} />
-          <Route path="*" element={<Navigate to={"/"} />} />
+            <Route path="/" element={user ? <Home /> : <Landing />} />
+            <Route path="/settings" element={user ? <Settings /> : <Landing />} />
+            <Route path="/allnotes" element={user ? <AllNotes /> : <Landing />} />
+            <Route path="/impnotes1" element={user ? <ImpTasks /> : <Landing />} />
+            <Route path="/impnotes0" element={user ? <ImpTasks /> : <Landing />} />
+            <Route path="/done1" element={user ? <DoneTasks /> : <Landing />} />
+            <Route path="/done0" element={user ? <DoneTasks /> : <Landing />} />
+            <Route path="/view/:id" element={user ? <ViewNote /> : <Landing />} />
+            <Route path="/edit/:id" element={user ? <EditNote /> : <Landing />} />
+            <Route path="*" element={<Navigate to={"/"} />} />
         </Routes>
+          </div>
       </Router>
     </div>
   );

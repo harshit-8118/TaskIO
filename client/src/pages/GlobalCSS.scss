@@ -73,8 +73,18 @@
     }
   }
 }
+.other{
+  margin-top: 80px;
+}
 .nav {
+  background-color: white;
   .navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 10;
     height: 60px;
     display: flex;
     flex-direction: row;
@@ -92,8 +102,26 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
+      // border: 1px solid black;
+      font-size: 14px;
       a{
         margin: 0 10px;
+      }
+      .active{
+        position: relative;
+        &::after {
+          content: "";
+          background-color: #00a5ec;
+          position: absolute;
+          height: 2px;
+          width: 0;
+          bottom: 0px;
+          left: 0px;
+          transition: all 0.6s ease;
+        }
+        &:hover::after {
+          width: 100%;
+        }
       }
     }
     .navbar-right {
@@ -138,4 +166,19 @@
 .link{
   text-decoration: none;
   color: inherit;
+}
+
+.message{
+  background-color: #58c9fa;
+  padding: 12px 20px;
+  width: auto;
+  align-self: self-start;
+  color: white;
+  position: absolute;
+  font-size: 18px;
+  top: 60px;
+  left: 50px;
+}
+.message-hidden{
+  display: none;
 }
