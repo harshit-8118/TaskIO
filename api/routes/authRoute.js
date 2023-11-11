@@ -90,7 +90,9 @@ router.put("/:id", verify, async (req, res) => {
         { $set: req.body },
         { new: true }
       );
-      res.status(200).json(updatedUser);
+      
+    const { password, createdAt, updatedAt, __v, ...info } = updatedUser._doc;
+      res.status(200).json({...info});
     } catch (err) {
       res.status(500).json(err);
     }
