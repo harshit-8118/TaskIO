@@ -4,7 +4,6 @@ const cryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
 
 router.post("/register", async (req, res) => {
-  // console.log(req.body);
   const newUser = new User({
     ...req.body,
     isAdmin: false,
@@ -28,7 +27,6 @@ router.post("/login", async (req, res) => {
   ];
   try {
     const user = await User.findOne({ $or: filter });
-    // console.log(user)
     if (!user) {
       res.status(401).json("username doesn't exists.");
       return;
@@ -37,7 +35,6 @@ router.post("/login", async (req, res) => {
       user.password,
       req.body.password
     ).toString(cryptoJS.enc.Utf8);
-    // console.log(originalPassword);
     if (originalPassword != req.body.password) {
       res.status(401).json("invalid password");
       return;

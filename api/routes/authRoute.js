@@ -48,7 +48,6 @@ router.get("/users", verify, async (req, res) => {
   if (req.user.isAdmin) {
     try {
       const users = await User.find().sort({createdAt: -1}).limit(50);
-      // console.log(users)
       res.status(201).json(users);
     } catch (err) {
       res.status(501).json(err);
