@@ -17,6 +17,5 @@ export const registerSchema = Yup.object({
 });
 
 export const taskSchema = Yup.object({
-  title: Yup.string().min(8, "too short...").required("Field can't be empty"),
-  
+  title: Yup.string().min(3).required("field can't be empty"),
 })
