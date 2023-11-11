@@ -6,7 +6,7 @@ export const NotesReducer = (state, action) => {
             error:false
         };
         case "SET_NOTES_SUCCESS": return {
-            notes:[...state.notes, action.payload],
+            notes:[...state.notes, action.payload].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)),
             isFetching:false,
             error:false
         };
@@ -36,7 +36,7 @@ export const NotesReducer = (state, action) => {
             error:false
         };
         case "CREATE_NOTE_SUCCESS": return {
-            notes: [...state.notes, action.payload],
+            notes: [...state.notes, action.payload].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)),
             isFetching: false,
             error: false
         };
@@ -57,7 +57,7 @@ export const NotesReducer = (state, action) => {
                 }else{
                     return note;
                 }
-            }),
+            }).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)),
             isFetching: false, 
             error: false
         };
