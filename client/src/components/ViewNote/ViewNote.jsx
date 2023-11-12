@@ -35,13 +35,13 @@ function ViewNote() {
     try {
       const apiKey = process.env.REACT_APP_CUSTOM_SEARCH_API_KEY;
       const cseId = process.env.REACT_APP_SEARCH_ENGINE_ID;
+      setSearchOpen(true);
       await axios
         .get(
           `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cseId}&q=${searchQuery}`
         )
         .then((resp) => {
-          setSearchResults(resp.data.items);
-          setSearchOpen(true);
+            setSearchResults(resp.data.items);
         });
     } catch (error) {
       console.error(error);
@@ -54,7 +54,7 @@ function ViewNote() {
           searchOpen ? " open" : ""
         }`}
       >
-        {searchOpen && <SearchPopUp searchResults={searchResults} setSearchOpen={setSearchOpen} />}
+        {searchOpen && <SearchPopUp searchResults={searchResults} setSearchResults={setSearchResults} setSearchOpen={setSearchOpen} />}
       </div>
       <div className="view-note-container">
         <div className="title-imp-done">

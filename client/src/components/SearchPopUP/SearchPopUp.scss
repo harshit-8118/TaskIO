@@ -32,6 +32,24 @@
         width: max-content;
       }
     }
+    .animate{
+      display: flex;
+      animation: spinner 1s infinite ease-in-out forwards;      
+      color: blue;
+      margin: 5px;
+    }
+    @keyframes spinner {
+      0% {
+        transform: rotate(0deg);
+      }
+      50% {
+        scale: 1.2;
+      }
+      100% {
+        transform: rotate(720deg);
+      }
+      
+    }
     .search-result {
       .content {
         display: flex;

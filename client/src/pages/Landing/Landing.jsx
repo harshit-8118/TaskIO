@@ -58,19 +58,25 @@ function Landing() {
         <div className="demo-cards">
           <div className="card">
             <img
-              src="https://d3atms9ic4lahi.cloudfront.net/banner-images/home_new/wta_launch_nov23-student.png.webp"
+              src={require('../../assets/IMGS/1.png')}
               alt="card"
             />
           </div>
           <div className="card">
             <img
-              src="https://internshala.com/static/images/pgc_course_specific_banners/pgc_homepage_banner_new.png"
+              src={require('../../assets/IMGS/2.png')}
               alt="card"
             />
           </div>
           <div className="card">
             <img
-              src="https://d3atms9ic4lahi.cloudfront.net/banner-images/home_new/wta_launch_nov23-student.png.webp"
+              src={require('../../assets/IMGS/3.png')}
+              alt="card"
+            />
+          </div>
+          <div className="card">
+            <img
+              src={require('../../assets/IMGS/4.png')}
               alt="card"
             />
           </div>
