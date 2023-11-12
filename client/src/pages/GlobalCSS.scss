@@ -77,6 +77,7 @@
   margin-top: 80px;
 }
 .nav {
+  position: relative;
   background-color: white;
   .navbar {
     position: fixed;
@@ -84,7 +85,7 @@
     top: 0;
     left: 0;
     background-color: white;
-    z-index: 10;
+    z-index: 1;
     height: 60px;
     display: flex;
     flex-direction: row;

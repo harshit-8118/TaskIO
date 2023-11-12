@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./SearchPopUp.scss";
 
 function SearchItem({ item }) {
   const { title, link, snippet, pagemap } = item;
@@ -18,18 +19,22 @@ function SearchItem({ item }) {
         >
           {title}
         </a>
-        {thumbnailUrl && (
-          <img src={thumbnailUrl} alt="Thumbnail" className="thumbnail" />
-        )}
-        <p className="snippet">{snippet}</p>
         <a
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className="link"
+          className="url-link"
         >
           {link}
         </a>
+        <div className="col">
+          <a href={link}>
+            {thumbnailUrl && (
+              <img src={thumbnailUrl} alt="Thumbnail" className="thumbnail" />
+            )}
+          </a>
+          <p className="snippet">{snippet}</p>
+        </div>
       </div>
     </div>
   );
