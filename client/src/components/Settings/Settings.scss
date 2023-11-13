@@ -99,15 +99,18 @@
       }
       .profile-pic {
         position: relative;
-        width: 180px;
-        height: 180px;
+        width: 140px;
+        height: 140px;
         display: flex;
-        align-items: flex-end;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
         border-radius: 100%;
+        margin-bottom: 30px;
         label {
           position: absolute;
           z-index: 100;
-          right: 15px;
+          right: 0;
           overflow: hidden;
           width: 170px;
           span {

@@ -120,7 +120,8 @@ function Settings() {
               case "success":
                 // console.log("uploaded");
                 break;
-              default: break;
+              default:
+                break;
             }
           },
           (error) => {
@@ -128,13 +129,14 @@ function Settings() {
               case "storage/unauthorized":
                 // console.log("not authorized ");
                 break;
-                case "storage/canceled":
-                  // console.log("cancelled");
-                  break;
-                  case "storage/unknown":
-                    // console.log("unknown storage");
-                    break;
-                  default: break;
+              case "storage/canceled":
+                // console.log("cancelled");
+                break;
+              case "storage/unknown":
+                // console.log("unknown storage");
+                break;
+              default:
+                break;
             }
             reject(error);
           },
@@ -230,10 +232,19 @@ function Settings() {
             </div>
 
             <div className="gender">
-              <label htmlFor="gender" style={{borderBottom: "1px solid lightgray", fontWeight: '300', display: 'inline-block'}}>Gender: </label>
+              <label
+                htmlFor="gender"
+                style={{
+                  borderBottom: "1px solid lightgray",
+                  fontWeight: "300",
+                  display: "inline-block",
+                }}
+              >
+                Gender:{" "}
+              </label>
               <label>
                 Male
-                <input  
+                <input
                   onKeyDown={handleKeyPress}
                   type="radio"
                   name="gender"
@@ -291,9 +302,11 @@ function Settings() {
           </div>
           <div className="profile-pic">
             <img src={user.profile_pic} alt="" />
-            <label htmlFor="file">
-              <span>{showFile}</span> <Publish />
-            </label>
+            <span>
+              <label htmlFor="file">
+                <span>{showFile}</span> <Publish />
+              </label>
+            </span>
             <input
               onKeyDown={handleKeyPress}
               type="file"
