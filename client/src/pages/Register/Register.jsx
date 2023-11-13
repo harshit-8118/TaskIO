@@ -42,7 +42,7 @@ function Register({ loginBtn, registerBtn, setLoginBtn, setRegisterBtn }) {
       setMessage("");
       setButtonContent("sending info...");
       try {
-        const res = await axios.post(baseUrl + "user/register", {
+        await axios.post(baseUrl + "user/register", {
           username: values.username,
           email: values.email,
           password: values.password,

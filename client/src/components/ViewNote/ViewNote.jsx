@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
 import "./ViewNote.scss";
 import {
   CheckCircle,

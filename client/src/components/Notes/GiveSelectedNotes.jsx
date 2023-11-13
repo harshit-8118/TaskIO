@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
+import { Link } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
 import "../AllNotes/AllNotes.scss";
 import { NotesContext } from "../../context/notes/NotesContext";
@@ -14,67 +13,34 @@ function GiveSelectedNotes({ notesMark: imp_done }) {
   const { user, dispatch: userDispatch } = useContext(AuthContext);
   const { notes, dispatch } = useContext(NotesContext);
   const [message, setMessage] = useState("");
-  const navigate = useNavigate();
   const imp = imp_done.important;
   const done = imp_done.done;
   const [fNotes, setFNotes] = useState(notes);
   useEffect(() => {
     let fnotes = [];
     if (imp === -1 && done === 0) {
-      fnotes = notes.filter((note) => {
-        if (note.done === false) {
-          return note;
-        }
-      });
+      fnotes = notes.filter((note) => !note.done);
       setFNotes(fnotes);
     } else if (imp === -1 && done === 1) {
-      fnotes = notes.filter((note) => {
-        if (note.done === true) {
-          return note;
-        }
-      });
+      fnotes = notes.filter((note) => note.done);
       setFNotes(fnotes);
     } else if (imp === 0 && done === -1) {
-      fnotes = notes.filter((note) => {
-        if (note.important === false) {
-          return note;
-        }
-      });
+      fnotes = notes.filter((note) => !note.important);
       setFNotes(fnotes);
     } else if (imp === 0 && done === 0) {
-      fnotes = notes.filter((note) => {
-        if (note.done === false && note.important === false) {
-          return note;
-        }
-      });
+      fnotes = notes.filter((note) => !note.done && !note.important);
       setFNotes(fnotes);
     } else if (imp === 0 && done === 1) {
-      fnotes = notes.filter((note) => {
-        if (note.done === true && note.important === false) {
-          return note;
-        }
-      });
+      fnotes = notes.filter((note) => note.done && !note.important);
       setFNotes(fnotes);
     } else if (imp === 1 && done === -1) {
-      fnotes = notes.filter((note) => {
-        if (note.important === true) {
-          return note;
-        }
-      });
+      fnotes = notes.filter((note) => note.important);
       setFNotes(fnotes);
     } else if (imp === 1 && done === 0) {
-      fnotes = notes.filter((note) => {
-        if (note.done === false && note.important === true) {
-          return note;
-        }
-      });
+      fnotes = notes.filter((note) => !note.done && note.important);
       setFNotes(fnotes);
     } else if (imp === 1 && done === 1) {
-      fnotes = notes.filter((note) => {
-        if (note.done === true && note.important === true) {
-          return note;
-        }
-      });
+      fnotes = notes.filter((note) => note.done && note.important);
       setFNotes(fnotes);
     } else {
       setFNotes(notes);
@@ -91,7 +57,6 @@ function GiveSelectedNotes({ notesMark: imp_done }) {
         .finally(() => {
           setTimeout(() => {
             setMessage("");
-            navigate("/allnotes");
           }, 2000);
         });
     }

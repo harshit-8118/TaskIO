@@ -19,7 +19,7 @@ router.get("/", verify, async (req, res) => {
 
 // get-user-id-notes
 router.get("/user/:user_id", verify, async (req, res) => {
-  if (req.params.user_id == req.user._id || req.user.isAdmin) {
+  if (req.params.user_id === req.user._id || req.user.isAdmin) {
     try {
       const notes = await Notes.find({ admin_id: req.params.user_id }).limit(
         20

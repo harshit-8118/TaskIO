@@ -5,11 +5,9 @@ import { useFormik } from "formik";
 import { loginSchema } from "../../validationSchemas/ValidateSchema";
 import { login_user } from "../../context/user/UserApi";
 import { AuthContext } from "../../context/user/UserContext";
-import { useNavigate } from "react-router-dom";
 
 function Login({ loginBtn, registerBtn, setLoginBtn, setRegisterBtn }) {
   const { user, dispatch } = useContext(AuthContext);
-  const navigate = useNavigate();
   const [message, setMessage] = useState(null);
   const [disable, setDisable] = useState(false);
 
@@ -52,7 +50,6 @@ function Login({ loginBtn, registerBtn, setLoginBtn, setRegisterBtn }) {
     if (user) {
       setDisable(true);
       setMessage("Already Login");
-      navigate("/");
     } else {
       setDisable(false);
     }

@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
 import { DataGrid } from "@mui/x-data-grid";
 import "./AllNotes.scss";
 import { NotesContext } from "../../context/notes/NotesContext";

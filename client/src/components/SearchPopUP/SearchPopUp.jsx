@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import SearchItem from "./SearchItem";
 import { Clear, RotateRight } from "@mui/icons-material";
 import "./SearchPopUp.scss";

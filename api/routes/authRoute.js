@@ -59,7 +59,7 @@ router.get("/users", verify, async (req, res) => {
 
 // delete-user by own or admin
 router.delete("/:id", verify, async (req, res) => {
-  if (req.params.id == req.user.id || req.user.isAdmin) {
+  if (req.params.id === req.user.id || req.user.isAdmin) {
     try {
       const deletedUser = await User.findByIdAndDelete(req.params.id);
       const deletedNotes = await Notes.deleteMany({admin_id: req.params.id});

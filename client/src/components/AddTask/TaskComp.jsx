@@ -90,7 +90,7 @@ function TaskComp() {
   };
   const deleteUrl = (e) => {
     const newUrls = urls.filter((val, ind) =>
-      e.target.id != val + ind ? e.target : null
+      e.target.id !== val + ind ? e.target : null
     );
     setUrls(newUrls);
   };

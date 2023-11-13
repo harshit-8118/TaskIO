@@ -1,6 +1,5 @@
 import { useContext, useEffect } from "react";
 import Landing from "./pages/Landing/Landing";
-import Login from "./pages/Login/Login";
 import { AuthContext } from "./context/user/UserContext";
 import Home from "./pages/Home/Home";
 import "./pages/GlobalCSS.scss";
@@ -20,7 +19,6 @@ import ImpTasks from "./components/ImportantNotes/ImpTasks";
 import DoneTasks from "./components/CompletedNotes/DoneTasks";
 import Navbar from "./components/Navbar/Navbar";
 import Notes from "./components/Notes/Notes";
-import GiveSelectedNotes from "./components/Notes/GiveSelectedNotes";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -29,11 +27,11 @@ function App() {
   useEffect(() => {
     try {
       cleanNoteOnLogout(dispatch);
-      user.notes.map((note_id) => {
+      user.notes.forEach((note_id) => {
         setInitialNotes(note_id, dispatch);
       });
     } catch (err) {}
-  }, [user]);
+  }, [user, dispatch]);
   return (
     <div className="App">
       <Router>

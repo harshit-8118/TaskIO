@@ -35,7 +35,7 @@ router.post("/login", async (req, res) => {
       user.password,
       req.body.password
     ).toString(cryptoJS.enc.Utf8);
-    if (originalPassword != req.body.password) {
+    if (originalPassword !== req.body.password) {
       res.status(401).json("invalid password");
       return;
     }

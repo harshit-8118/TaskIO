@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
 import { DataGrid } from "@mui/x-data-grid";
 import { NotesContext } from "../../context/notes/NotesContext";
 import { deleteNote } from "../../context/notes/NotesApi";
@@ -15,13 +14,9 @@ function DoneTasks() {
   const don = useLocation().state.don;
   const [completedNotes, setCNotes] = useState([]);
   useEffect(() => {
-    const CN = notes.filter((note) => {
-      if (note.done == don) {
-        return note;
-      }
-    });
+    const CN = notes.filter((note) => note.done === don);
     setCNotes(CN);
-  }, [don]);
+  }, [don, notes]);
 
   const handleDelete = (noteId) => {
     if (window.confirm(`${noteId} will be deleted.`)) {

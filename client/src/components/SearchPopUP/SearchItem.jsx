@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./SearchPopUp.scss";
 
 function SearchItem({ item }) {

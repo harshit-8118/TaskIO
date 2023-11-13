@@ -40,7 +40,7 @@ export const updateUser = async (user, dispatch, noteId = null) => {
     dispatch(updateUserStart());
     try {
       let user_notes;
-      user_notes = noteId == null ? user.notes : [...user.notes, noteId];
+      user_notes = noteId === null ? user.notes : [...user.notes, noteId];
       const { accesstoken, ...user_info } = user;
       user_info.notes = user_notes;
       const res = await axios.put(baseUrl + "auth/" + user._id, user_info, {
@@ -64,7 +64,7 @@ export const updateNoteUser = (user, dispatch, noteId = null) => {
     dispatch(updateUserStart());
     try {
       const user_notes = user.notes.filter((note_id) => {
-        return note_id != noteId ? note_id : null;
+        return note_id !== noteId ? note_id : null;
       });
       const { accesstoken, ...user_info } = user;
       user_info.notes = user_notes;

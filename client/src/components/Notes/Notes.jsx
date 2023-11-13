@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./notes.scss";
 import GiveSelectedNotes from "./GiveSelectedNotes";
 function Notes() {

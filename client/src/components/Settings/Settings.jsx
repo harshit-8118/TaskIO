@@ -38,7 +38,7 @@ function Settings() {
     validateOnChange: true,
     onSubmit: (values, actions) => {
       setMessage("sending info...");
-      if (profile_pic != "") {
+      if (profile_pic !== "") {
         upload(profile_pic)
           .then((url) => {
             values = { ...values, profile_pic: url };
@@ -120,6 +120,7 @@ function Settings() {
               case "success":
                 // console.log("uploaded");
                 break;
+              default: break;
             }
           },
           (error) => {
@@ -127,12 +128,13 @@ function Settings() {
               case "storage/unauthorized":
                 // console.log("not authorized ");
                 break;
-              case "storage/canceled":
-                // console.log("cancelled");
-                break;
-              case "storage/unknown":
-                // console.log("unknown storage");
-                break;
+                case "storage/canceled":
+                  // console.log("cancelled");
+                  break;
+                  case "storage/unknown":
+                    // console.log("unknown storage");
+                    break;
+                  default: break;
             }
             reject(error);
           },

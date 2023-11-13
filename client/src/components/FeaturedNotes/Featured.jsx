@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/user/UserContext";
 import { Link } from "react-router-dom";
 import { EditNote } from "@mui/icons-material";
 function Featured() {
-  const { notes, dispatch } = useContext(NotesContext);
+  const { notes } = useContext(NotesContext);
   const { user } = useContext(AuthContext);
   const [featureNotes, setFNotes] = useState([]);
   useEffect(() => {

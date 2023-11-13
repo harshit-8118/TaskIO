@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
 import "./EditNote.scss";
 import {
   CheckCircle,
@@ -58,6 +57,7 @@ function EditNote() {
     validateOnBlur: true,
     validateOnChange: true,
     onSubmit: (values, action) => {
+      setCompletionTime(completionTime);
       const obj = {
         title: values.title,
         description: values.description,
@@ -97,7 +97,7 @@ function EditNote() {
   };
   const deleteUrl = (e) => {
     const newUrls = urls.filter((val, ind) =>
-      e.target.id != val + ind ? e.target : null
+      e.target.id !== val + ind ? e.target : null
     );
     setUrls(newUrls);
   };

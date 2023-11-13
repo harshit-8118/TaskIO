@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import Navbar from "../../components/Navbar/Navbar";
+import React from "react";
 import TaskComp from "../../components/AddTask/TaskComp";
 import Featured from "../../components/FeaturedNotes/Featured";
 
