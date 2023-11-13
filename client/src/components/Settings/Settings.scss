@@ -1,0 +1,152 @@
+.update-container{
+    width: 60%;
+    margin: 80px auto;
+    padding: 20px 0px 0px 0px;
+    box-shadow: 1px 1px 10px -5px black;
+    .update-form{
+        width: 90%;
+        display: flex;
+        margin: 20px auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .username-email{
+            border-bottom: 2px solid rgb(232, 229, 229);
+            color: rgb(163, 161, 161);
+            align-self: self-start;
+            font-size: 14px;
+            width: 100%;
+            padding-bottom: 5px;
+            span{
+                color: rgb(108, 106, 106);
+                font-weight: 600;
+            }
+            .user_id{
+            padding: 1px 0;
+            letter-spacing: 1px;    
+            }
+            .username{padding: 1px 0;
+            letter-spacing: 1px;}
+            .email{padding: 1px 0;
+            letter-spacing: 1px;}
+        }
+        .full-name-gender-age{
+            width: 100%;
+            margin-top: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgb(232, 229, 229);
+            .all{
+                padding-bottom: 10px;
+                display: flex;
+                flex-direction: column;
+                .full-name{
+                    display: flex;
+                    align-items: center;
+                    align-self: self-start;
+                    input{
+                        margin-top: 10px;
+                        padding: 10px;
+                        outline: none;
+                        border: none;
+                        border-bottom: 1px solid gray;
+                        margin-right: 10px;
+                    }
+                    .form-error{
+                        color: red;
+                        font-size: 10px;
+                        position: absolute;
+                    }
+                }
+                .gender{    
+                    display: flex;
+                    flex-direction: column;
+                    font-size: 14px;
+                    margin-top: 10px;
+                    label{
+                        display: flex;
+                        align-items: center;
+                        width: 100px;
+                        justify-content: space-between;
+                        margin: 2px;
+                    }
+                }
+                .age{
+                    input{
+                        margin-top: 10px;
+                        outline: none;
+                        border: none;
+                        border-bottom: 1px solid gray;
+                        padding: 10px;
+                    }
+                    .form-error{
+                        color: red;
+                        font-size: 12px;
+                        position: absolute;
+                    }
+                }
+            }
+            .profile-pic{
+                position: relative;
+                width: 180px; 
+                height: 180px;
+                display: flex;
+                align-items: end;
+                border-radius: 100%;
+                label{
+                    position: absolute;
+                    z-index: 100;
+                    left: -50px;
+                    overflow: hidden;
+                    width: 170px;
+                    span{
+                        margin-right: 50px;
+                    }
+                }
+                img{
+                    background-image: url('');
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+            }
+        }
+        .mobile{
+            align-self: self-start;
+            width: 100%;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgb(232, 229, 229);
+            input{
+                margin-top: 10px;
+                outline: none;
+                border: none;
+                border-bottom: 1px solid gray;
+                padding: 10px;
+            }
+            .form-error{
+                color: red;
+                font-size: 12px;
+                position: absolute;
+            }
+        }
+        .update-btn{
+            align-self: self-start;
+            padding: 10px;
+            border: none;
+            background-color: #00a5ec;
+            color: white;
+            letter-spacing: 1px;
+            width: 200px;
+            margin: 10px 0px;
+            border-radius: 2px;   
+            cursor: pointer;
+            &:hover{
+                background-color: #0e98d4;
+            }         
+        }
+    }
+}
