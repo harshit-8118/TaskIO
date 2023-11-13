@@ -1,71 +1,71 @@
 export const setInitialNotesStart = () => ({
-    type: "SET_NOTES_START"
-})
+  type: "SET_NOTES_START",
+});
 
 export const setInitialNotesSuccess = (note) => ({
-    type: "SET_NOTES_SUCCESS",
-    payload: note
-})
+  type: "SET_NOTES_SUCCESS",
+  payload: note,
+});
 
 export const setInitialNotesFailure = () => ({
-    type: "SET_NOTES_FAILURE"
-})
+  type: "SET_NOTES_FAILURE",
+});
 
 export const cleanNotesOnLogout = () => ({
-    type: "CLEAN_NOTE_LOGOUT"
-})
+  type: "CLEAN_NOTE_LOGOUT",
+});
 
 export const getNotesStart = () => ({
-    type: "GET_NOTES_START"
-})
+  type: "GET_NOTES_START",
+});
 
 export const getNotesSuccess = (note) => ({
-    type: "GET_NOTES_SUCCESS",
-    payload: note
-})
+  type: "GET_NOTES_SUCCESS",
+  payload: note,
+});
 
 export const getNotesFailure = () => ({
-    type: "GET_NOTES_FAILURE"
-})
+  type: "GET_NOTES_FAILURE",
+});
 
 // create Note
 export const createNoteStart = () => ({
-    type: "CREATE_NOTE_START"
-})
+  type: "CREATE_NOTE_START",
+});
 
 export const createNoteSuccess = (note) => ({
-    type: "CREATE_NOTE_SUCCESS",
-    payload: note
-})
+  type: "CREATE_NOTE_SUCCESS",
+  payload: note,
+});
 
 export const createNoteFailure = () => ({
-    type: "CREATE_NOTE_FAILURE"
-})
+  type: "CREATE_NOTE_FAILURE",
+});
 
 //update
 export const updateNoteStart = () => ({
-    type: "UPDATE_NOTE_START"
-})
+  type: "UPDATE_NOTE_START",
+});
 
 export const updateNoteSuccess = (note) => ({
-    type: "UPDATE_NOTE_SUCCESS",
-    payload: note
-})
+  type: "UPDATE_NOTE_SUCCESS",
+  payload: note,
+});
 
 export const updateNoteFailure = () => ({
-    type: "UPDATE_NOTE_FAILURE"
-})
+  type: "UPDATE_NOTE_FAILURE",
+});
 
-// delete Note 
+// delete Note
 export const deleteNoteStart = () => ({
-    type: "DELETE_NOTE_START"
-})
+  type: "DELETE_NOTE_START",
+});
 
 export const deleteNoteSuccess = (NoteID) => ({
-    type: "DELETE_NOTE_SUCCESS",
-    payload: NoteID
-})
+  type: "DELETE_NOTE_SUCCESS",
+  payload: NoteID,
+});
 
 export const deleteNoteFailure = () => ({
-    type: "DELETE_NOTE_FAILURE"
-})
+  type: "DELETE_NOTE_FAILURE",
+});

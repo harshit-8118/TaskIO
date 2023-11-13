@@ -73,7 +73,7 @@
     }
   }
 }
-.other{
+.other {
   margin-top: 80px;
 }
 .nav {
@@ -99,16 +99,16 @@
         margin-left: 30px;
       }
     }
-    .navbar-middle{
+    .navbar-middle {
       display: flex;
       justify-content: space-around;
       align-items: center;
       // border: 1px solid black;
       font-size: 14px;
-      a{
+      a {
         margin: 0 10px;
       }
-      .active{
+      .active {
         position: relative;
         &::after {
           content: "";
@@ -133,17 +133,16 @@
       margin-right: 50px;
       .settings-btn {
         margin-right: 10px;
-        a{
+        a {
           display: flex;
           justify-content: center;
           width: 30px;
           height: 30px;
           border: none;
           cursor: pointer;
-          .settings-ico{
+          .settings-ico {
             color: #00a5ec;
             font-size: 30px;
-            
           }
         }
       }
@@ -164,12 +163,12 @@
   }
 }
 
-.link{
+.link {
   text-decoration: none;
   color: inherit;
 }
 
-.message{
+.message {
   background-color: #58c9fa;
   padding: 12px 20px;
   width: auto;
@@ -179,7 +178,8 @@
   font-size: 18px;
   top: 60px;
   left: 50px;
+  z-index: 100;
 }
-.message-hidden{
+.message-hidden {
   display: none;
 }

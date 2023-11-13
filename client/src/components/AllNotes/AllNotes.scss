@@ -1,45 +1,45 @@
-.notes-grid-table{
-    width: 90%;
-    margin: 10px auto;
-    .actions{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        a{
-            .ico{
-                font-size: 20px;
-                color: rgb(54, 81, 229);
-                margin-right: 5px;
-            }
-            .noteEdit{
-                border: none;
-                background-color: #29b7f4;
-                padding: 0px;
-                margin: 5px;
-                border-radius: 5px; 
-                cursor: pointer;
-                color: white;
-            }
-        }
-        .deleteNote{
-            color: red;
-            cursor: pointer;
-        }
+.notes-grid-table {
+  width: 90%;
+  margin: 10px auto;
+  .actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a {
+      .ico {
+        font-size: 20px;
+        color: rgb(54, 81, 229);
+        margin-right: 5px;
+      }
+      .noteEdit {
+        border: none;
+        background-color: #29b7f4;
+        padding: 0px;
+        margin: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        color: white;
+      }
     }
-    .urls{
-        button{
-            background-color: #B2BEB5;
-            border: none;
-            padding: 3px;
-            margin: 0px 3px;
-            border-radius: 3px;
-            color: rgb(70, 69, 69);
-        }
+    .deleteNote {
+      color: red;
+      cursor: pointer;
     }
-    .check-ico{
-        color: green;
+  }
+  .urls {
+    button {
+      background-color: #b2beb5;
+      border: none;
+      padding: 3px;
+      margin: 0px 3px;
+      border-radius: 3px;
+      color: rgb(70, 69, 69);
     }
-    .cross-ico{ 
-        color: red;
-    }
+  }
+  .check-ico {
+    color: green;
+  }
+  .cross-ico {
+    color: red;
+  }
 }

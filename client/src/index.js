@@ -6,8 +6,10 @@ import AuthContextProvider from "./context/user/UserContext";
 import NotesContextProvider from "./context/notes/NotesContext";
 
 const loadGoogleSearchScript = () => {
-  const script = document.createElement('script');
-  script.src = 'https://cse.google.com/cse.js?cx=' + process.env.REACT_APP_SEARCH_ENGINE_ID;
+  const script = document.createElement("script");
+  script.src =
+    "https://cse.google.com/cse.js?cx=" +
+    process.env.REACT_APP_SEARCH_ENGINE_ID;
   script.async = true;
   document.body.appendChild(script);
 };

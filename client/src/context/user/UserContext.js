@@ -3,8 +3,7 @@ import { UserReducer } from "./UserReducer";
 let user = null;
 try {
   user = JSON.parse(localStorage.getItem("user"));
-} catch (err){
-}
+} catch (err) {}
 const initialValues = {
   user: user,
   isFetching: false,

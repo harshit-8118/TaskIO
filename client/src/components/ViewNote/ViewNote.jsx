@@ -41,7 +41,7 @@ function ViewNote() {
           `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cseId}&q=${searchQuery}`
         )
         .then((resp) => {
-            setSearchResults(resp.data.items);
+          setSearchResults(resp.data.items);
         });
     } catch (error) {
       console.error(error);
@@ -49,12 +49,14 @@ function ViewNote() {
   };
   return (
     <div className="view-container">
-      <div
-        className={`pop-search-qry${
-          searchOpen ? " open" : ""
-        }`}
-      >
-        {searchOpen && <SearchPopUp searchResults={searchResults} setSearchResults={setSearchResults} setSearchOpen={setSearchOpen} />}
+      <div className={`pop-search-qry${searchOpen ? " open" : ""}`}>
+        {searchOpen && (
+          <SearchPopUp
+            searchResults={searchResults}
+            setSearchResults={setSearchResults}
+            setSearchOpen={setSearchOpen}
+          />
+        )}
       </div>
       <div className="view-note-container">
         <div className="title-imp-done">

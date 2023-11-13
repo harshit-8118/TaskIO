@@ -47,13 +47,13 @@ function Settings() {
                 setMessage("Updated Successfully.");
               })
               .catch((err) => setMessage("Updation failed."))
-              .finally(() =>{
+              .finally(() => {
                 setProgress(0);
                 setProfile_Pic("");
                 setShowFile("");
                 setTimeout(() => {
                   setMessage("");
-                }, 2000)
+                }, 2000);
               });
           })
           .catch((err) => {
@@ -82,16 +82,15 @@ function Settings() {
             setMessage("Updated Successfully.");
           })
           .catch((err) => setMessage("Updation failed."))
-          .finally(() =>{
+          .finally(() => {
             setProfile_Pic("");
             setProgress(0);
             setShowFile("");
             setTimeout(() => {
               setMessage("");
-            }, 2000)
+            }, 2000);
           });
       }
-     
     },
   });
   const handleKeyPress = (e) => {

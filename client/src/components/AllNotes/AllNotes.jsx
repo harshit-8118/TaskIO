@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import { DataGrid } from "@mui/x-data-grid";
@@ -13,10 +13,21 @@ import { DeleteOutline, OpenInNew, EditNote } from "@mui/icons-material";
 function AllNotes() {
   const { user, dispatch: userDispatch } = useContext(AuthContext);
   const { notes, dispatch } = useContext(NotesContext);
-  
+  const [message, setMessage] = useState("");
+
   const handleDelete = (noteId) => {
     if (window.confirm(`${noteId} will be deleted.`)) {
-      deleteNote(noteId, dispatch, user, userDispatch);
+      setMessage("Deleting...");
+      deleteNote(noteId, dispatch, user, userDispatch)
+        .then(() => {
+          setMessage("Deleted Successfully.");
+        })
+        .catch((err) => "Deletion failed.")
+        .finally(() => {
+          setTimeout(() => {
+            setMessage("");
+          }, 2000);
+        });
     }
   };
 
@@ -74,9 +85,7 @@ function AllNotes() {
                 </button>
               ))
             ) : (
-              <button type="url-button">
-                NA
-              </button>
+              <button type="url-button">NA</button>
             )}
           </div>
         );
@@ -99,7 +108,9 @@ function AllNotes() {
               </abbr>
             </Link>
             <Link to={`/edit/${params.row._id}`} state={{ note: params.row }}>
-              <button className="noteEdit"><EditNote /></button>
+              <button className="noteEdit">
+                <EditNote />
+              </button>
             </Link>
             <abbr title="Delete">
               <DeleteOutline
@@ -116,6 +127,7 @@ function AllNotes() {
   return (
     <div>
       <div className="notes-grid-table">
+        {message && <p className="message">{message}</p>}
         <DataGrid
           rows={notes}
           columns={columns}

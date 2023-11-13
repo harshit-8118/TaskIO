@@ -18,7 +18,7 @@ import { taskSchema } from "../../validationSchemas/ValidateSchema";
 import { updateUser } from "../../context/user/UserApi";
 
 function EditNote() {
-  const {user, dispatch: userDispatch } = useContext(AuthContext);
+  const { user, dispatch: userDispatch } = useContext(AuthContext);
   const note = useLocation().state.note;
   const [done, setDone] = useState(note.done);
   const [important, setImportant] = useState(note.important);
@@ -31,9 +31,9 @@ function EditNote() {
   const handleDelete = (noteId) => {
     if (window.confirm(`${noteId} will be deleted.`)) {
       deleteNote(noteId, dispatch, user, userDispatch);
-      navigate('/allnotes');
+      navigate("/allnotes");
     }
-  }
+  };
 
   const initialValues = {
     title: note.title,
@@ -42,7 +42,7 @@ function EditNote() {
     url_text: "",
     description: note.description,
     completionDate: note.completionDate,
-    _id: note._id
+    _id: note._id,
   };
   const {
     values,
@@ -65,19 +65,22 @@ function EditNote() {
         important: important,
         url: urls,
         completionDate: completionTime,
-        _id: note._id
+        _id: note._id,
       };
       setMessage("updating...");
       updateNote(obj, dispatch)
         .then((resp) => {
-          setMessage("Updated successfully.")
+          setMessage("Updated successfully.");
         })
         .catch((err) => {
-          setMessage("Failed...")
-        }).finally(() => {
-          setTimeout(() => {setMessage("")}, 2000)
+          setMessage("Failed...");
+        })
+        .finally(() => {
+          setTimeout(() => {
+            setMessage("");
+          }, 2000);
         });
-        updateUser(user, userDispatch);
+      updateUser(user, userDispatch);
     },
   });
 
@@ -219,7 +222,7 @@ function EditNote() {
           onKeyUp={handleKeyPress}
           maxLength={2000}
         ></textarea>
-        <p className={message?"message":"message-hidden"}>{message}</p>
+        <p className={message ? "message" : "message-hidden"}>{message}</p>
         <button className="update-btn" type="submit">
           UPDATE
         </button>

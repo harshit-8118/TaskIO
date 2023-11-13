@@ -32,9 +32,9 @@
         width: max-content;
       }
     }
-    .animate{
+    .animate {
       display: flex;
-      animation: spinner 1s infinite ease-in-out forwards;      
+      animation: spinner 1s infinite ease-in-out forwards;
       color: blue;
       margin: 5px;
     }
@@ -48,7 +48,6 @@
       100% {
         transform: rotate(720deg);
       }
-      
     }
     .search-result {
       .content {
@@ -59,8 +58,8 @@
           font-weight: 300;
         }
         .col {
-            display: flex;
-            padding: 5px;
+          display: flex;
+          padding: 5px;
           .thumbnail {
             width: 70px;
             height: 50px;

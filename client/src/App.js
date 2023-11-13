@@ -3,7 +3,7 @@ import Landing from "./pages/Landing/Landing";
 import Login from "./pages/Login/Login";
 import { AuthContext } from "./context/user/UserContext";
 import Home from "./pages/Home/Home";
-import './pages/GlobalCSS.scss';
+import "./pages/GlobalCSS.scss";
 import {
   BrowserRouter as Router,
   Route,
@@ -19,38 +19,58 @@ import EditNote from "./components/EditNote/EditNote";
 import ImpTasks from "./components/ImportantNotes/ImpTasks";
 import DoneTasks from "./components/CompletedNotes/DoneTasks";
 import Navbar from "./components/Navbar/Navbar";
+import Notes from "./components/Notes/Notes";
+import GiveSelectedNotes from "./components/Notes/GiveSelectedNotes";
 
 function App() {
   const { user } = useContext(AuthContext);
-  const { dispatch} = useContext(NotesContext);
-  
+  const { dispatch } = useContext(NotesContext);
+
   useEffect(() => {
-    try{
+    try {
       cleanNoteOnLogout(dispatch);
       user.notes.map((note_id) => {
         setInitialNotes(note_id, dispatch);
       });
-    }catch(err){
-    }
-  }, [user])
+    } catch (err) {}
+  }, [user]);
   return (
     <div className="App">
       <Router>
         {user && <Navbar />}
-          <div className="other">
-        <Routes>
+        <div className="other">
+          <Routes>
             <Route path="/" element={user ? <Home /> : <Landing />} />
-            <Route path="/settings" element={user ? <Settings /> : <Landing />} />
-            <Route path="/allnotes" element={user ? <AllNotes /> : <Landing />} />
-            <Route path="/impnotes1" element={user ? <ImpTasks /> : <Landing />} />
-            <Route path="/impnotes0" element={user ? <ImpTasks /> : <Landing />} />
+            <Route
+              path="/settings"
+              element={user ? <Settings /> : <Landing />}
+            />
+            <Route
+              path="/allnotes"
+              element={user ? <AllNotes /> : <Landing />}
+            />
+            <Route path="/notes" element={user ? <Notes /> : <Landing />} />
+            <Route
+              path="/impnotes1"
+              element={user ? <ImpTasks /> : <Landing />}
+            />
+            <Route
+              path="/impnotes0"
+              element={user ? <ImpTasks /> : <Landing />}
+            />
             <Route path="/done1" element={user ? <DoneTasks /> : <Landing />} />
             <Route path="/done0" element={user ? <DoneTasks /> : <Landing />} />
-            <Route path="/view/:id" element={user ? <ViewNote /> : <Landing />} />
-            <Route path="/edit/:id" element={user ? <EditNote /> : <Landing />} />
+            <Route
+              path="/view/:id"
+              element={user ? <ViewNote /> : <Landing />}
+            />
+            <Route
+              path="/edit/:id"
+              element={user ? <EditNote /> : <Landing />}
+            />
             <Route path="*" element={<Navigate to={"/"} />} />
-        </Routes>
-          </div>
+          </Routes>
+        </div>
       </Router>
     </div>
   );

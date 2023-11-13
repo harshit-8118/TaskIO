@@ -7,14 +7,14 @@ import { AuthContext } from "../../context/user/UserContext";
 function Landing() {
   const [loginBtn, setLoginBtn] = useState(false);
   const [registerBtn, setRegisterBtn] = useState(false);
-  const {user} = useContext(AuthContext);
-  
-  useEffect(()=>{
-    if(user){
+  const { user } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (user) {
       setLoginBtn(false);
       setRegisterBtn(false);
     }
-  }, [user])
+  }, [user]);
   return (
     <div className="landing">
       <div
@@ -22,13 +22,30 @@ function Landing() {
           loginBtn || registerBtn ? " open" : ""
         }`}
       >
-        {loginBtn && <Login loginBtn={loginBtn} registerBtn={registerBtn} setLoginBtn={setLoginBtn} setRegisterBtn={setRegisterBtn} />}
-        {registerBtn && <Register loginBtn={loginBtn} registerBtn={registerBtn} setLoginBtn={setLoginBtn} setRegisterBtn={setRegisterBtn} />}
+        {loginBtn && (
+          <Login
+            loginBtn={loginBtn}
+            registerBtn={registerBtn}
+            setLoginBtn={setLoginBtn}
+            setRegisterBtn={setRegisterBtn}
+          />
+        )}
+        {registerBtn && (
+          <Register
+            loginBtn={loginBtn}
+            registerBtn={registerBtn}
+            setLoginBtn={setLoginBtn}
+            setRegisterBtn={setRegisterBtn}
+          />
+        )}
       </div>
       <div className="landing-header">
         <div className="navbar">
           <div className="navbar-left">
-            <img src="https://www.klipfolio.com/sites/default/files/partners/logo-taskio_0.png" alt="TASKIO" />
+            <img
+              src="https://www.klipfolio.com/sites/default/files/partners/logo-taskio_0.png"
+              alt="TASKIO"
+            />
           </div>
           <div className="navbar-right">
             <button
@@ -57,28 +74,16 @@ function Landing() {
         <h1>Manage your notes with TaskIO.</h1>
         <div className="demo-cards">
           <div className="card">
-            <img
-              src={require('../../assets/IMGS/1.png')}
-              alt="card"
-            />
+            <img src={require("../../assets/IMGS/1.png")} alt="card" />
           </div>
           <div className="card">
-            <img
-              src={require('../../assets/IMGS/2.png')}
-              alt="card"
-            />
+            <img src={require("../../assets/IMGS/2.png")} alt="card" />
           </div>
           <div className="card">
-            <img
-              src={require('../../assets/IMGS/3.png')}
-              alt="card"
-            />
+            <img src={require("../../assets/IMGS/3.png")} alt="card" />
           </div>
           <div className="card">
-            <img
-              src={require('../../assets/IMGS/4.png')}
-              alt="card"
-            />
+            <img src={require("../../assets/IMGS/4.png")} alt="card" />
           </div>
         </div>
       </div>

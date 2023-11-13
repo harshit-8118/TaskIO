@@ -9,7 +9,7 @@ const firebaseConfig = {
   storageBucket: "addnote-1699259210502.appspot.com",
   messagingSenderId: process.env.REACT_APP_ADDNOTE_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_ADDNOTE_MESSAGING_APP_ID,
-  measurementId: "G-6HSXHRG2FJ"
+  measurementId: "G-6HSXHRG2FJ",
 };
 
 const app = initializeApp(firebaseConfig);

@@ -66,9 +66,7 @@ function ImpTasks() {
                 </button>
               ))
             ) : (
-              <button type="url-button">
-                NA
-              </button>
+              <button type="url-button">NA</button>
             )}
           </div>
         );
@@ -91,7 +89,9 @@ function ImpTasks() {
               </abbr>
             </Link>
             <Link to={`/edit/${params.row._id}`} state={{ note: params.row }}>
-              <button className="noteEdit"><EditNote /></button>
+              <button className="noteEdit">
+                <EditNote />
+              </button>
             </Link>
             <abbr title="Delete">
               <DeleteOutline
@@ -114,7 +114,7 @@ function ImpTasks() {
           getRowId={(r) => (r ? r._id : "")}
           initialState={{
             pagination: {
-              paginationModel: { page: 0, pageSize: 10 },
+              paginationModel: { page: 0, pageSize: 5 },
             },
           }}
           disableRowSelectionOnClick

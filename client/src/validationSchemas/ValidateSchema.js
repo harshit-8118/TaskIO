@@ -20,15 +20,13 @@ export const userUpdationSchema = Yup.object({
   fname: Yup.string().min(2).max(50).nullable(true),
   lname: Yup.string().min(2).max(50).nullable(true),
   mobile: Yup.mixed()
-    .test('is-valid-number', 'Invalid contact number.', (value) => {
-      // Allow null, undefined, or an empty string
+    .test("is-valid-number", "Invalid contact number.", (value) => {
       if (!value) {
         return true;
       }
-      return typeof value === 'number' || /^[0-9]+$/.test(value);
+      return typeof value === "number" || /^[0-9]+$/.test(value);
     })
-    .test('is-valid-length', 'Contact number must be 10 digits.', (value) => {
-      // Allow null, undefined, or an empty string
+    .test("is-valid-length", "Contact number must be 10 digits.", (value) => {
       if (!value) {
         return true;
       }
@@ -39,4 +37,4 @@ export const userUpdationSchema = Yup.object({
 });
 export const taskSchema = Yup.object({
   title: Yup.string().min(3).required("field can't be empty"),
-})
+});

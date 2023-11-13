@@ -40,7 +40,7 @@ export const updateUser = async (user, dispatch, noteId = null) => {
     dispatch(updateUserStart());
     try {
       let user_notes;
-      user_notes = (noteId == null) ? user.notes : [...user.notes, noteId];
+      user_notes = noteId == null ? user.notes : [...user.notes, noteId];
       const { accesstoken, ...user_info } = user;
       user_info.notes = user_notes;
       const res = await axios.put(baseUrl + "auth/" + user._id, user_info, {

@@ -117,7 +117,7 @@ export const deleteNote = (noteID, dispatch, user, userDispatch) => {
     dispatch(deleteNoteStart());
     try {
       updateNoteUser(user, userDispatch, noteID)
-      .then(async () => {
+        .then(async () => {
           await axios.delete(baseUrl + `notes/${noteID}`);
           dispatch(deleteNoteSuccess(noteID));
           resolve();

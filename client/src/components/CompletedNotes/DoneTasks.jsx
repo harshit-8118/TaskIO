@@ -115,7 +115,7 @@ function DoneTasks() {
           getRowId={(r) => (r ? r._id : "")}
           initialState={{
             pagination: {
-              paginationModel: { page: 0, pageSize: 10 },
+              paginationModel: { page: 0, pageSize: 5 },
             },
           }}
           disableRowSelectionOnClick

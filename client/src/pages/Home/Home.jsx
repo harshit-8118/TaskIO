@@ -7,7 +7,9 @@ function Home() {
   return (
     <div>
       <TaskComp />
-      <h2 style={{margin: "auto", width: "max-content", color: "#00a5ec"}}>Newly Added Tasks...</h2>
+      <h2 style={{ margin: "auto", width: "max-content", color: "#00a5ec" }}>
+        Newly Added Tasks...
+      </h2>
       <Featured />
     </div>
   );

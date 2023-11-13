@@ -10,15 +10,15 @@ import { AuthContext } from "../../context/user/UserContext";
 function Register({ loginBtn, registerBtn, setLoginBtn, setRegisterBtn }) {
   const [buttonContent, setButtonContent] = useState("Register");
   const [message, setMessage] = useState(null);
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [disable, setDisable] = useState(false);
-  useEffect(()=>{
-    if(user){
+  useEffect(() => {
+    if (user) {
       setDisable(true);
-    }else{
+    } else {
       setDisable(false);
     }
-  }, [user])
+  }, [user]);
 
   const initialValues = {
     username: "",
@@ -80,10 +80,10 @@ function Register({ loginBtn, registerBtn, setLoginBtn, setRegisterBtn }) {
             onChange={handleChange}
             onBlur={handleBlur}
             disabled={disable}
-            />
+          />
           {touched.email && errors.email ? (
             <p className="form-error">{errors.email}</p>
-            ) : null}
+          ) : null}
         </div>
         <div className="input-block">
           <input
@@ -112,10 +112,10 @@ function Register({ loginBtn, registerBtn, setLoginBtn, setRegisterBtn }) {
             onChange={handleChange}
             onBlur={handleBlur}
             disabled={disable}
-            />
+          />
           {errors.password && touched.password ? (
             <p className="form-error">{errors.password}</p>
-            ) : null}
+          ) : null}
         </div>
         <div className="input-block">
           <input
@@ -128,15 +128,15 @@ function Register({ loginBtn, registerBtn, setLoginBtn, setRegisterBtn }) {
             onChange={handleChange}
             onBlur={handleBlur}
             disabled={disable}
-            />
+          />
           {errors.confirm_password && touched.confirm_password ? (
             <p className="form-error">{errors.confirm_password}</p>
           ) : null}
         </div>
         <div className="modal-buttons">
           <p>{message}</p>
-          {disable && (<p>You are already login!!</p>)}
-          
+          {disable && <p>You are already login!!</p>}
+
           <button className="input-button" type="submit" disabled={disable}>
             {buttonContent}
           </button>

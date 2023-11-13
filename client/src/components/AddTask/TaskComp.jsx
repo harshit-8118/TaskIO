@@ -60,7 +60,7 @@ function TaskComp() {
         .finally(() => {
           setTimeout(() => {
             setMessage("");
-          }, 2000)
+          }, 2000);
           action.resetForm({
             title: "",
             description: "",

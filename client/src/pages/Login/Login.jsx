@@ -2,9 +2,7 @@ import "../../pages/GlobalCSS.scss";
 import { Clear } from "@mui/icons-material";
 import React, { useContext, useEffect, useState } from "react";
 import { useFormik } from "formik";
-import {
-  loginSchema,
-} from "../../validationSchemas/ValidateSchema";
+import { loginSchema } from "../../validationSchemas/ValidateSchema";
 import { login_user } from "../../context/user/UserApi";
 import { AuthContext } from "../../context/user/UserContext";
 import { useNavigate } from "react-router-dom";
@@ -32,16 +30,19 @@ function Login({ loginBtn, registerBtn, setLoginBtn, setRegisterBtn }) {
     validationSchema: loginSchema,
     validateOnBlur: false,
     onSubmit: (values, action) => {
-      setMessage("Fetching info...")
-      login_user(values, dispatch).then((resp) => {
-        setMessage("Login success.")
-      }).catch((err) => {
-        setMessage("Login failed.")
-      }).finally(() => {
-        setTimeout(() => {
-          setMessage("");
-        }, 2000);
-      });
+      setMessage("Fetching info...");
+      login_user(values, dispatch)
+        .then((resp) => {
+          setMessage("Login success.");
+        })
+        .catch((err) => {
+          setMessage("Login failed.");
+        })
+        .finally(() => {
+          setTimeout(() => {
+            setMessage("");
+          }, 2000);
+        });
       action.setFieldValue("username", values.username);
       action.setFieldValue("password", values.password);
     },
@@ -52,7 +53,7 @@ function Login({ loginBtn, registerBtn, setLoginBtn, setRegisterBtn }) {
       setDisable(true);
       setMessage("Already Login");
       navigate("/");
-    }else{
+    } else {
       setDisable(false);
     }
   }, [user, message]);
