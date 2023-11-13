@@ -26,6 +26,6 @@ app.use("/api/user", UserRoute);
 app.use("/api/notes", NoteRoute);
 app.use("/api/auth", AdminRoute);
 
-app.listen(process.env.ROUTE || 5500, () => {
+app.listen(process.env.ROUTE || 8000, () => {
   console.log("server is running");
 });
