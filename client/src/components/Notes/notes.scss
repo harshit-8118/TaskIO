@@ -1,0 +1,29 @@
+.notes {
+  .select-box-outer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .select-box-inner {
+      margin: 0px 10px;
+      span {
+        color: #3f3e3e;
+        font-size: 13px;
+      }
+      select {
+        padding: 3px;
+        width: 150px;
+        font-size: 16px;
+        outline: 1px solid black;
+        position: relative;
+      }
+      option {
+        padding: 5px 4px;
+        margin: 50px;
+        font-size: 16px;
+      }
+    }
+  }
+  .outlet {
+    margin-top: 100px;
+  }
+}
