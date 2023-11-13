@@ -48,7 +48,7 @@ function App() {
               element={user ? <AllNotes /> : <Landing />}
             />
             <Route path="/notes" element={user ? <Notes /> : <Landing />} />
-            <Route
+            {/* <Route 
               path="/impnotes1"
               element={user ? <ImpTasks /> : <Landing />}
             />
@@ -57,7 +57,7 @@ function App() {
               element={user ? <ImpTasks /> : <Landing />}
             />
             <Route path="/done1" element={user ? <DoneTasks /> : <Landing />} />
-            <Route path="/done0" element={user ? <DoneTasks /> : <Landing />} />
+            <Route path="/done0" element={user ? <DoneTasks /> : <Landing />} /> */}
             <Route
               path="/view/:id"
               element={user ? <ViewNote /> : <Landing />}
@@ -75,4 +75,4 @@ function App() {
 }
 
 export default App;
-export const baseUrl = "http://localhost:5500/api/";
+export const baseUrl = process.env.REACT_APP_ADDNOTE_BACKENED_URL + "/api/";
