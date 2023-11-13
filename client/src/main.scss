@@ -1,0 +1,36 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@mixin xlg-screen {
+  @media screen and (min-width: 1000px) {
+    @content;
+  }
+}
+
+@mixin lg-screen {
+  @media screen and (min-width: 860px) and (max-width: 999px) {
+    @content;
+  }
+}
+
+@mixin md-screen {
+  @media screen and (min-width: 500px) and (max-width: 859px) {
+    @content;
+  }
+}
+
+@mixin sm-screen {
+  @media screen and (max-width: 499px) {
+    @content;
+  }
+}

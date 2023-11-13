@@ -1,10 +1,9 @@
+@import '../../main.scss';
 .notes-grid-table {
   width: 90%;
   margin: 10px auto;
   .actions {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-center;
     a {
       .ico {
         font-size: 20px;

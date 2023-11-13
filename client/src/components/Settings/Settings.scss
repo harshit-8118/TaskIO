@@ -1,15 +1,17 @@
+@import '../../main.scss';
 .update-container {
   width: 60%;
+  @include md-screen{
+    width: 80%;
+  }
   margin: 80px auto;
+  min-width: 480px;
   padding: 20px 0px 0px 0px;
   box-shadow: 1px 1px 10px -5px black;
   .update-form {
     width: 90%;
-    display: flex;
+    @include flex-column;
     margin: 20px auto;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     .username-email {
       border-bottom: 2px solid rgb(232, 229, 229);
       color: rgb(163, 161, 161);
@@ -53,9 +55,10 @@
           align-self: self-start;
           input {
             margin-top: 10px;
-            padding: 10px;
+            padding: 10px 0;
             outline: none;
             border: none;
+            font-size: 15px;
             border-bottom: 1px solid gray;
             margin-right: 10px;
           }
@@ -84,7 +87,8 @@
             outline: none;
             border: none;
             border-bottom: 1px solid gray;
-            padding: 10px;
+            padding: 10px 0;
+            font-size: 15px;
           }
           .form-error {
             color: red;
@@ -103,7 +107,7 @@
         label {
           position: absolute;
           z-index: 100;
-          left: -50px;
+          right: 15px;
           overflow: hidden;
           width: 170px;
           span {
@@ -128,7 +132,8 @@
         outline: none;
         border: none;
         border-bottom: 1px solid gray;
-        padding: 10px;
+        padding: 10px 0;
+        font-size: 15px;
       }
       .form-error {
         color: red;

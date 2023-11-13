@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "../../pages/GlobalCSS.scss";
+import "../../GlobalCSS.scss";
 import { AuthContext } from "../../context/user/UserContext";
 import { Logout } from "../../context/user/UserApi";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -36,8 +36,10 @@ function Navbar() {
             className={`link ${isActiveLink("/allnotes") && "active"}`}
             state={notes}
           >
-            All
+            ALL
           </Link>
+          {/* 
+          // improved UI with filters instead links...
           <Link
             to={"/impnotes1"}
             state={{ imp: true }}
@@ -65,13 +67,12 @@ function Navbar() {
             className={`link ${isActiveLink("/done0") && "active"}`}
           >
             Completed
-          </Link>
+          </Link> */}
           <Link
             to={"/notes"}
             state={{ don: true }}
             className={`link ${isActiveLink("/notes") && "active"}`}
-          >
-            Notes
+          > TASKS
           </Link>
         </div>
         <div className="navbar-right">

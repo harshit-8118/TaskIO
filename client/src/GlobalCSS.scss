@@ -1,8 +1,15 @@
+@import './main.scss';
 .login-register-box {
   width: 35%;
   border: 1px solid #fff;
   margin: 50px auto;
   position: relative;
+  @include sm-screen{
+    min-width: 60%;
+  }
+  @include md-screen{
+    min-width: 50%;
+  }
   span {
     position: absolute;
     top: 0;
@@ -12,9 +19,7 @@
     width: 100%;
     border: 1px solid black;
     margin: 75px auto 0px auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @include flex-column;
     align-items: center;
     h2 {
       margin: 8px;
@@ -75,6 +80,9 @@
 }
 .other {
   margin-top: 80px;
+  @include sm-screen{
+    min-width: 500px;
+  }
 }
 .nav {
   position: relative;
@@ -82,6 +90,7 @@
   .navbar {
     position: fixed;
     width: 100%;
+    min-width: 500px;
     top: 0;
     left: 0;
     background-color: white;
@@ -97,16 +106,26 @@
         width: 120px;
         height: auto;
         margin-left: 30px;
+        @include sm-screen{
+          width: 80px;
+          margin-left: 10px;
+        }
       }
     }
     .navbar-middle {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      // border: 1px solid black;
       font-size: 14px;
+      @include sm-screen{
+        justify-content: center;
+        font-size: 12px;
+      }
       a {
         margin: 0 10px;
+        @include sm-screen{
+          margin: 0 4px;
+        }
       }
       .active {
         position: relative;
@@ -127,10 +146,12 @@
     }
     .navbar-right {
       margin: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @include flex-center;
       margin-right: 50px;
+      @include sm-screen{
+        margin-right: 20px;
+        @include flex-center;
+      }
       .settings-btn {
         margin-right: 10px;
         a {
@@ -138,6 +159,11 @@
           justify-content: center;
           width: 30px;
           height: 30px;
+          @include sm-screen{
+            width: 20px;
+            height: 20px;
+            margin-bottom: 10px;
+          }
           border: none;
           cursor: pointer;
           .settings-ico {
@@ -151,9 +177,7 @@
         border: 1px solid black;
         font-size: 20px;
         color: red;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flex-center;
         border-radius: 5px;
         width: 30px;
         height: 30px;

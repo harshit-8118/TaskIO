@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import Landing from "./pages/Landing/Landing";
 import { AuthContext } from "./context/user/UserContext";
 import Home from "./pages/Home/Home";
-import "./pages/GlobalCSS.scss";
+import "./GlobalCSS.scss";
 import {
   BrowserRouter as Router,
   Route,

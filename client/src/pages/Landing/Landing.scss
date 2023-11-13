@@ -1,12 +1,15 @@
+@import '../../main.scss';
 .landing {
   display: flex;
   flex-direction: column;
+  min-width: 500px;
   width: 100%;
   margin-top: -80px;
   .pop-login-register {
     position: absolute;
     z-index: 1;
     transition: all 0.2s ease-in-out;
+    min-width: 500px;
     width: 100%;
     height: 0;
     background: linear-gradient(
@@ -22,8 +25,10 @@
   }
 
   .landing-header {
+    width: 100%;
     .navbar {
       height: 60px;
+      width: 100%;
       display: flex;
       flex-direction: row;
       box-shadow: 0px 6px 0px -5px rgba(237, 237, 237, 1);
@@ -65,25 +70,39 @@
   }
   .landing-body {
     height: calc(100vh - 60px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @include sm-screen{
+      height: auto;
+    }
+    @include md-screen{
+      height: auto;
+    }
+    @include flex-column;
     h1 {
       text-align: center;
       margin-top: 50px;
       font-size: 52px;
+      @include sm-screen{
+        font-size: 38px
+      }
     }
     .demo-cards {
-      display: flex;
-      flex-direction: row;
+      @include flex-center;
+      flex-wrap: wrap;
       width: 100%;
-      justify-content: center;
-      align-items: center;
       margin-top: 30px;
       .card {
         margin: 20px;
         img {
-          width: 245px;
+          width: 300x;
+          @include md-screen{
+            width: 245px;
+          }
+          @include lg-screen{
+            width: 245px;
+          }
+          @include xlg-screen{
+            width: 245px;
+          }
           height: 170px;
           cursor: pointer;
         }

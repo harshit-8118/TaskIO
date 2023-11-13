@@ -230,10 +230,10 @@ function Settings() {
             </div>
 
             <div className="gender">
-              {/* <label htmlFor="gender">Gender</label> */}
+              <label htmlFor="gender" style={{borderBottom: "1px solid lightgray", fontWeight: '300', display: 'inline-block'}}>Gender: </label>
               <label>
                 Male
-                <input
+                <input  
                   onKeyDown={handleKeyPress}
                   type="radio"
                   name="gender"

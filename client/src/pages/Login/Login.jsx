@@ -1,4 +1,4 @@
-import "../../pages/GlobalCSS.scss";
+import "../../GlobalCSS.scss";
 import { Clear } from "@mui/icons-material";
 import React, { useContext, useEffect, useState } from "react";
 import { useFormik } from "formik";

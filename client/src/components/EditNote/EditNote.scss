@@ -1,19 +1,21 @@
+@import '../../main.scss';
 .edit-note-container {
   width: 70%;
-  display: flex;
+  @include flex-column;
   margin: 20px auto;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
   border-radius: 20px;
   box-shadow: 1px 1px 20px -5px black;
   padding: 20px;
-  min-width: 520px;
+  min-width: 500px;
   .title-imp-done {
     display: flex;
-    width: 100%;
-    align-items: center;
     justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    @include xlg-screen{
+      flex-direction: row;
+    }
+    width: 100%;
     .title {
       font-size: 30px;
       font-weight: 900;
@@ -96,12 +98,10 @@
           width: 14px;
           height: 14px;
           color: gray;
-          display: flex;
+          @include flex-center;
           border: none;
           background-color: inherit;
           border-left: 1px solid black;
-          justify-content: center;
-          align-items: center;
           .del-ico {
             font-size: 14px;
           }

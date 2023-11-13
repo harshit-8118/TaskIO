@@ -1,3 +1,4 @@
+@import '../../main.scss';
 .featured-container {
   display: flex;
   flex-wrap: wrap;
@@ -11,6 +12,10 @@
     overflow: hidden;
     width: 250px;
     height: 200px;
+    @include sm-screen{
+      width: 350px;
+      height: 220px;
+    }
     border-radius: 20px;
     font-size: 18px;
     font-weight: 900;
@@ -61,9 +66,7 @@
       }
       .card-not-done {
         margin-left: 5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flex-center;
         width: 115px;
         background-color: #93c572;
         background-color: #d22b2b;
