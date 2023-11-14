@@ -76,7 +76,9 @@ function Navbar() {
           </Link>
         </div>
         <div className="navbar-right">
-          <div className="gcse-search"></div>
+          <div className="g-search-box">
+            <div className={"gcse-search"}></div>
+          </div>
           <abbr title="Settings" className="settings-btn">
             <Link to={"/settings"} state={{ user }} className="link">
               <Settings className="settings-ico" />

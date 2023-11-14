@@ -4,7 +4,7 @@
   z-index: 15;
   transition: all 0.2s ease-in-out;
   width: 100%;
-  min-width: 500px;
+  min-width: 280px;
   height: 0;
   background: linear-gradient(
     to bottom,
@@ -17,24 +17,28 @@
   margin: -80px 0px;
   padding: 50px 0px;
   width: 100%;
-  height: auto;
-  @include sm-screen{
-    min-height: 500px;
-  }
+  height: 100vh;
 }
 .view-note-container {
   width: 70%;
   @include flex-column;
-  @include sm-screen{
-    width: 400px;
-  }
   margin: 20px auto;
   border-radius: 20px;
   box-shadow: 1px 1px 20px -5px black;
-  padding: 20px;
-  min-width: 520px;
+  padding: 20px 10px;
+  min-width: 280px;
+  @include xsm-screen{
+    width: 90%;
+  }
+  @include sm-screen{
+    width:85%;
+  }
+  @include md-screen{
+    width:85%;
+  }
   .title-imp-done {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     align-items: center;
     justify-content: space-between;
@@ -45,11 +49,16 @@
     .title {
       font-size: 30px;
       font-weight: 900;
+      @include xsm-screen{
+        font-size: 25px;
+        font-weight: 600;
+      }
       border-bottom: 1px solid black;
     }
     .imp-done {
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
       .imp,
       .done {
         .outer-box {
@@ -73,6 +82,9 @@
             border-left: 1px solid black;
             .ico {
               font-size: 18px;
+              @include xsm-screen{
+                font-size: 14px;
+              }
             }
           }
         }
@@ -104,10 +116,25 @@
         &:hover {
           background-color: #08a4e7;
         }
+        @include xsm-screen{
+          font-size: 14px;
+          padding: 1px;
+          width: 30px;
+          height: 30px;
+        }
+        @include sm-screen{
+          font-size: 14px;
+          padding: 5px;
+          width: 30px;
+          height: 30px;
+        }
       }
       .noteDelBtn {
         color: red;
         cursor: pointer;
+        @include xsm-screen{
+          font-size: 10px;
+        }
       }
     }
   }
@@ -115,8 +142,14 @@
     margin: 10px 0;
     align-self: self-start;
     flex-wrap: wrap;
+    @include xsm-screen{
+      margin: 4px 0;
+    }
     button {
       margin: 10px 10px 10px 0px;
+      @include xsm-screen{
+        margin: 4px 4px 4px 0px;
+      }
       padding: 3px 6px;
       cursor: pointer;
       border-radius: 4px;

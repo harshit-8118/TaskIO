@@ -5,8 +5,17 @@
   margin: 20px auto;
   border-radius: 20px;
   box-shadow: 1px 1px 20px -5px black;
-  padding: 20px;
-  min-width: 500px;
+  padding: 20px 10px;
+  min-width: 280px;
+  @include xsm-screen{
+    width: 90%;
+  }
+  @include sm-screen{
+    width:85%;
+  }
+  @include md-screen{
+    width:85%;
+  }
   .title-imp-done {
     display: flex;
     justify-content: space-between;
@@ -19,6 +28,10 @@
     .title {
       font-size: 30px;
       font-weight: 900;
+      @include xsm-screen{
+        font-size: 25px;
+        font-weight: 600;
+      }
       border: none;
       border-bottom: 1px solid black;
       outline: none;

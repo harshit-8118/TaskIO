@@ -1,6 +1,24 @@
+@import '../../main.scss';
 .search-pop-container {
   position: relative;
   width: 70%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.9)
+  );
+  @include xsm-screen{
+    width: 90%;
+    padding: 10px;
+  }
+  @include sm-screen{
+    padding: 20x;
+    width: 80%;
+  }
+  @include md-screen{
+    padding: 20x;
+    width: 80%;
+  }
   margin: auto;
   box-shadow: 1px 1px 10px -5px black;
   z-index: 15;
@@ -17,6 +35,7 @@
   }
   .search-items-container {
     padding-top: 10px;
+    background-color: white;
     .search-web-results {
       font-size: 14px;
       border-bottom: 1px solid gray;
@@ -56,6 +75,9 @@
         margin-top: 10px;
         .title {
           font-weight: 300;
+          @include xsm-screen{
+            font-size: 14px;
+          }
         }
         .col {
           display: flex;
@@ -64,16 +86,26 @@
             width: 70px;
             height: 50px;
             background-position: center;
+            @include xsm-screen{
+              width: 55px;
+              height: 45px;
+            }
           }
           .snippet {
             font-size: 14px;
             margin-left: 10px;
+            @include xsm-screen{
+              font-size: 12px;
+            }
           }
         }
         .url-link {
           color: #00a36c;
           font-size: 14px;
           text-decoration: none;
+          @include xsm-screen{
+            font-size: 13px;
+          }
         }
       }
     }

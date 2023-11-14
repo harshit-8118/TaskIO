@@ -2,20 +2,26 @@
 .landing {
   display: flex;
   flex-direction: column;
-  min-width: 500px;
+  min-width: 280px;
   width: 100%;
   margin-top: -80px;
+  @include xsm-screen{
+    // margin-top: 0px;
+  }
   .pop-login-register {
     position: absolute;
     z-index: 1;
     transition: all 0.2s ease-in-out;
-    min-width: 500px;
+    min-width: 280px;
+    @include sm-screen{
+      min-width: 320px;
+    }
     width: 100%;
     height: 0;
     background: linear-gradient(
       to bottom,
-      rgba(255, 255, 255, 1),
-      rgba(255, 255, 255, 1)
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.9)
     );
   }
 
@@ -37,12 +43,27 @@
       .navbar-left {
         img {
           width: 120px;
+          @include xsm-screen{
+            margin-left: 10px;
+            width: 80px;
+          }
+          @include sm-screen{
+            width: 100px;
+            margin-left: 20px;
+          }
           height: auto;
           margin-left: 30px;
         }
       }
       .navbar-right {
         margin: 50px;
+        @include xsm-screen{
+          margin: 20px;
+        }
+        @include sm-screen{
+          margin: 30px;
+        }
+        @include flex-center;
         .login-btn {
           background: none;
           padding: 10px;
@@ -50,6 +71,11 @@
           letter-spacing: 1px;
           border-radius: 5px;
           width: 80px;
+          @include xsm-screen{
+            width: 50px;
+            padding: 5px;
+            letter-spacing: 0;
+          }
           cursor: pointer;
         }
         .register-btn {
@@ -63,6 +89,11 @@
           width: 100px;
           letter-spacing: 1px;
           font-weight: 600;
+          @include xsm-screen{
+            width: 70px;
+            padding: 5px;
+            letter-spacing: 0;
+          }
           cursor: pointer;
         }
       }
@@ -70,6 +101,10 @@
   }
   .landing-body {
     height: calc(100vh - 60px);
+    @include xsm-screen{
+      height: auto;
+      margin-top: 0px;
+    }
     @include sm-screen{
       height: auto;
     }
@@ -79,9 +114,15 @@
     @include flex-column;
     h1 {
       text-align: center;
-      margin-top: 50px;
+      margin: 50px 10px 0px 10px;
       font-size: 52px;
+      @include xsm-screen{
+        font-size: 22px
+      }
       @include sm-screen{
+        font-size: 30px
+      }
+      @include md-screen{
         font-size: 38px
       }
     }

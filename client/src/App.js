@@ -25,6 +25,7 @@ function App() {
   const { dispatch } = useContext(NotesContext);
 
   useEffect(() => {
+    document.body.style.overflow = 'auto';
     try {
       cleanNoteOnLogout(dispatch);
       user.notes.forEach((note_id) => {

@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SearchItem from "./SearchItem";
 import { Clear, RotateRight } from "@mui/icons-material";
 import "./SearchPopUp.scss";
-function SearchPopUp({ searchResults, setSearchResults, setSearchOpen }) {
+function SearchPopUp({ searchResults, setSearchResults, searchOpen, setSearchOpen }) {
+  useEffect(() => {
+    if(searchOpen){
+      document.body.style.overflow = 'hidden';
+    }else{
+      document.body.style.overflow = 'auto';
+    }
+  }, [searchOpen]);
   return (
     <div className="search-pop-container">
       <span

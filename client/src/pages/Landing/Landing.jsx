@@ -8,7 +8,13 @@ function Landing() {
   const [loginBtn, setLoginBtn] = useState(false);
   const [registerBtn, setRegisterBtn] = useState(false);
   const { user } = useContext(AuthContext);
-
+  useEffect(() => {
+    if(loginBtn || registerBtn){
+      document.body.style.overflow = 'hidden';
+    }else{
+      document.body.style.overflow = 'auto';
+    }
+  }, [loginBtn, registerBtn]);
   useEffect(() => {
     if (user) {
       setLoginBtn(false);

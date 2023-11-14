@@ -3,7 +3,13 @@
   width: 40%;
   padding: 10px;
   margin: 30px auto;
-  min-width: 440px;
+  min-width: 260px;
+  @include sm-screen{
+    width: 80%;
+  }
+  @include md-screen{
+    width: 70%;
+  }
   .task-form {
     @include flex-column;
     border-radius: 5px;
@@ -39,6 +45,15 @@
         border: none;
         font-size: 14px;
         min-height: 50px;
+        @include xsm-screen{
+          min-height: 100px;
+        }
+        @include sm-screen{
+          min-height: 150px;
+        }
+        @include md-screen{
+          min-height: 100px;
+        }
         padding: 5px;
         color: rgb(103, 102, 102);
         border-bottom: 1px solid black;

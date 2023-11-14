@@ -1,5 +1,6 @@
 @import '../../main.scss';
 .notes {
+  min-width: 280px;
   .select-box-outer {
     @include flex-center;
     .select-box-inner {

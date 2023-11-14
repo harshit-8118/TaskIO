@@ -1,111 +1,120 @@
-@import '../../main.scss';
-.featured-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  .card {
-    margin: 10px 10px;
-    padding: 20px;
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-    width: 250px;
-    height: 200px;
-    @include sm-screen{
-      width: 350px;
-      height: 220px;
-    }
-    border-radius: 20px;
-    font-size: 18px;
-    font-weight: 900;
-    color: white;
-    .card-title {
-      font-size: 24px;
-    }
-    .card-urls {
-      display: flex;
-      width: 100%;
+@import "../../main.scss";
+.outer-featured {
+  @include flex-center;
+  width: 100%;
+  min-width: 280px;
+  .featured-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0px auto;
+    .card {
+      margin: 10px 10px;
+      padding: 20px;
+      position: relative;
+      background-size: cover;
+      background-position: center;
       overflow: hidden;
-      span {
-        background-color: #b2beb5;
-        margin: 3px;
-        padding: 2px;
-        font-size: 12px;
-        border-radius: 5px;
+      min-width: 200px;
+      width: 250px;
+      height: 200px;
+      @include sm-screen {
+        width: 350px;
+        height: 220px;
       }
-    }
-    .imp-done-box {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 8px;
-      .card-important {
-        text-align: center;
-        width: 100px;
-        background-color: #ffbf00;
-        padding: 6px;
-        border-radius: 5px;
-        font-size: 14px;
+      border-radius: 20px;
+      font-size: 18px;
+      font-weight: 900;
+      color: white;
+      .card-title {
+        font-size: 24px;
       }
-      .card-not-important {
-        text-align: center;
-        width: 115px;
-        background-color: #ffbf00;
-        padding: 6px 3px;
-        border-radius: 5px;
-        font-size: 14px;
-      }
-      .card-done {
-        text-align: center;
-        width: 80px;
-        background-color: #00a36c;
-        padding: 6px;
-        border-radius: 5px;
-        font-size: 14px;
-        margin-left: 5px;
-      }
-      .card-not-done {
-        margin-left: 5px;
-        @include flex-center;
-        width: 115px;
-        background-color: #93c572;
-        background-color: #d22b2b;
-        padding: 6px 3px;
-        border-radius: 5px;
-        font-size: 14px;
-      }
-    }
-    .card-open {
-      position: absolute;
-      bottom: 10px;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      .view {
-        height: 40px;
-        color: black;
-        width: 80px;
-        text-align: center;
-        border-radius: 10px;
-        padding: 10px;
-        cursor: pointer;
-        background-color: #e5e4e2;
-        &:hover {
-          background-color: #c0c0c0;
+      .card-urls {
+        display: flex;
+        width: 100%;
+        overflow: hidden;
+        span {
+          background-color: #b2beb5;
+          margin: 3px;
+          padding: 2px;
+          font-size: 12px;
+          border-radius: 5px;
         }
       }
-      .edit {
-        height: 40px;
-        color: black;
-        width: 40px;
-        text-align: center;
-        border-radius: 10px;
-        padding: 10px;
-        cursor: pointer;
-        margin-left: 10px;
-        background-color: #e5e4e2;
-        &:hover {
-          background-color: #c0c0c0;
+      .imp-done-box {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 8px;
+        .card-important {
+          text-align: center;
+          width: 100px;
+          background-color: #ffbf00;
+          padding: 6px;
+          border-radius: 5px;
+          font-size: 14px;
+        }
+        .card-not-important {
+          text-align: center;
+          width: 115px;
+          background-color: #ffbf00;
+          padding: 6px 3px;
+          border-radius: 5px;
+          font-size: 14px;
+        }
+        .card-done {
+          text-align: center;
+          width: 80px;
+          background-color: #00a36c;
+          padding: 6px;
+          border-radius: 5px;
+          font-size: 14px;
+          margin-left: 5px;
+        }
+        .card-not-done {
+          margin-left: 5px;
+          @include flex-center;
+          width: 115px;
+          background-color: #93c572;
+          background-color: #d22b2b;
+          padding: 6px 3px;
+          border-radius: 5px;
+          font-size: 14px;
+        }
+      }
+      .card-open {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        .view {
+          height: 40px;
+          color: black;
+          width: 80px;
+          text-align: center;
+          border-radius: 10px;
+          padding: 10px;
+          cursor: pointer;
+          background-color: #e5e4e2;
+          &:hover {
+            background-color: #c0c0c0;
+          }
+        }
+        .edit {
+          height: 40px;
+          color: black;
+          width: 40px;
+          text-align: center;
+          border-radius: 10px;
+          padding: 10px;
+          cursor: pointer;
+          margin-left: 10px;
+          background-color: #e5e4e2;
+          &:hover {
+            background-color: #c0c0c0;
+          }
         }
       }
     }

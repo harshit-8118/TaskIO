@@ -2,6 +2,7 @@
 .notes-grid-table {
   width: 90%;
   margin: 10px auto;
+  min-width: 280px;
   .actions {
     @include flex-center;
     a {

@@ -10,7 +10,13 @@ function Login({ loginBtn, registerBtn, setLoginBtn, setRegisterBtn }) {
   const { user, dispatch } = useContext(AuthContext);
   const [message, setMessage] = useState(null);
   const [disable, setDisable] = useState(false);
-
+  useEffect(() => {
+    if(loginBtn || registerBtn){
+      document.body.style.overflow = 'hidden';
+    }else{
+      document.body.style.overflow = 'auto';
+    }
+  }, [loginBtn, registerBtn]);
   const initialValues = {
     username: "",
     password: "",

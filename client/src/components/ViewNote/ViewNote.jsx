@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./ViewNote.scss";
 import {
@@ -28,7 +28,13 @@ function ViewNote() {
       navigate("/allnotes");
     }
   };
-
+  useEffect(() => {
+    if(searchOpen){
+      document.body.style.overflow = 'hidden';
+    }else{
+      document.body.style.overflow = 'auto';
+    }
+  }, [searchOpen]);
   const handleSearch = async (e) => {
     const searchQuery = e.target.childNodes[0].data;
     try {
@@ -53,6 +59,7 @@ function ViewNote() {
           <SearchPopUp
             searchResults={searchResults}
             setSearchResults={setSearchResults}
+            searchOpen={searchOpen}
             setSearchOpen={setSearchOpen}
           />
         )}
