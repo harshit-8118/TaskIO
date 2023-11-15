@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const cors = require('cors');
+const cors = require("cors");
 const dotenv = require("dotenv").config();
 const UserRoute = require("./routes/userRoute");
 const NoteRoute = require("./routes/noteRoute");
@@ -14,10 +14,12 @@ const db = mongoose
   .catch((err) => console.log(err));
 
 app.use(express.json());
-
+const allowedOrigins = [
+  "https://mr-task8.netlify.app",
+];
 app.use(
   cors({
-    origin: "*", // Replace with your allowed origin(s)
+    origin: allowedOrigins, // Replace with your allowed origin(s)
     methods: "GET,PUT,POST,DELETE",
     credentials: true, // Enable cookies and other credentials
   })
