@@ -18,7 +18,7 @@ function ImpTasks() {
     setINotes(iN);
   }, [imp, notes]);
   const handleDelete = (noteId) => {
-    if (window.confirm(`${noteId} will be deleted.`)) {
+    if (window.confirm(`Note "${noteId}" will be deleted.`)) {
       deleteNote(noteId, dispatch, user, userDispatch).then(() => {}).catch(err=>{});
     }
   };

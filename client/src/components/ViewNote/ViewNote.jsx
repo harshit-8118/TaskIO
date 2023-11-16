@@ -23,7 +23,7 @@ function ViewNote() {
   const [searchResults, setSearchResults] = useState([]);
   const [searchOpen, setSearchOpen] = useState(false);
   const handleDelete = (noteId) => {
-    if (window.confirm(`${noteId} will be deleted.`)) {
+    if (window.confirm(`Note "${noteId}" will be deleted.`)) {
       deleteNote(noteId, dispatch, user, userDispatch).then(() => {}).catch(err=>{});
       navigate("/allnotes");
     }

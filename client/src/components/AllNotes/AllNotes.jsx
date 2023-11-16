@@ -15,7 +15,7 @@ function AllNotes() {
   const [message, setMessage] = useState("");
 
   const handleDelete = (noteId) => {
-    if (window.confirm(`${noteId} will be deleted.`)) {
+    if (window.confirm(`Note "${noteId}" will be deleted.`)) {
       setMessage("Deleting...");
       deleteNote(noteId, dispatch, user, userDispatch)
         .then(() => {

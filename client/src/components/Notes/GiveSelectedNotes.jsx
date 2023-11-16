@@ -47,7 +47,7 @@ function GiveSelectedNotes({ notesMark: imp_done }) {
     }
   }, [dispatch, notes, imp, done]);
   const handleDelete = (noteId) => {
-    if (window.confirm(`${noteId} will be deleted.`)) {
+    if (window.confirm(`Note "${noteId}" will be deleted.`)) {
       setMessage("Deleting...");
       deleteNote(noteId, dispatch, user, userDispatch)
         .then(() => {
