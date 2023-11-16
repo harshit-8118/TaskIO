@@ -71,6 +71,7 @@
     .login-sign-up {
       font-size: 13px;
       margin: 10px;
+      @include flex-column;
       button {
         font-weight: 600;
         font-size: 14px;

@@ -19,6 +19,7 @@ import EditNote from "./components/EditNote/EditNote";
 // import DoneTasks from "./components/CompletedNotes/DoneTasks";
 import Navbar from "./components/Navbar/Navbar";
 import Notes from "./components/Notes/Notes";
+import ResetPass from "./pages/ResetPassword/ResetPass";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -49,6 +50,7 @@ function App() {
               element={user ? <AllNotes /> : <Landing />}
             />
             <Route path="/notes" element={user ? <Notes /> : <Landing />} />
+            <Route path="/resetpass" element={ <ResetPass /> } />
             {/* <Route 
               path="/impnotes1"
               element={user ? <ImpTasks /> : <Landing />}
@@ -76,5 +78,5 @@ function App() {
 }
 
 export default App;
-// export const baseUrl = process.env.REACT_APP_ADDNOTE_BACKENED_URL + "/api/";
-export const baseUrl = "http://localhost:5500/api/";
+export const baseUrl = process.env.REACT_APP_ADDNOTE_BACKENED_URL + "/api/";
+// export const baseUrl = "http://localhost:5500/api/";

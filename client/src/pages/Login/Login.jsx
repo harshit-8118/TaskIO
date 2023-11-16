@@ -5,16 +5,18 @@ import { useFormik } from "formik";
 import { loginSchema } from "../../validationSchemas/ValidateSchema";
 import { login_user } from "../../context/user/UserApi";
 import { AuthContext } from "../../context/user/UserContext";
+import ResetPass from "../ResetPassword/ResetPass";
+import { Link } from "react-router-dom";
 
 function Login({ loginBtn, registerBtn, setLoginBtn, setRegisterBtn }) {
   const { user, dispatch } = useContext(AuthContext);
   const [message, setMessage] = useState(null);
   const [disable, setDisable] = useState(false);
   useEffect(() => {
-    if(loginBtn || registerBtn){
-      document.body.style.overflow = 'hidden';
-    }else{
-      document.body.style.overflow = 'auto';
+    if (loginBtn || registerBtn) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
     }
   }, [loginBtn, registerBtn]);
   const initialValues = {
@@ -106,18 +108,29 @@ function Login({ loginBtn, registerBtn, setLoginBtn, setRegisterBtn }) {
             Login
           </button>
         </div>
-        <p className="login-sign-up">
-          {registerBtn}
-          Don't have an account?{" "}
-          <button
-            onClick={() => {
-              loginBtn && setLoginBtn(!loginBtn);
-              setRegisterBtn(!registerBtn);
-            }}
-          >
-            Register now
-          </button>
-        </p>
+        <div className="login-sign-up">
+          <div>
+            Forgotten password?{" "}
+            <Link
+              to={"/resetpass"}
+              className="link"
+              style={{ color: "red", margin: "0px 5px", cursor: "pointer" }}
+            >
+              Reset password
+            </Link>
+          </div>
+          <div>
+            Don't have an account?{" "}
+            <button
+              onClick={() => {
+                loginBtn && setLoginBtn(!loginBtn);
+                setRegisterBtn(!registerBtn);
+              }}
+            >
+              Register now
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   );
