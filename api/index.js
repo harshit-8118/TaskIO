@@ -16,12 +16,13 @@ const db = mongoose
 app.use(express.json());
 const allowedOrigins = [
   "https://mr-task8.netlify.app",
+  // "http://localhost:3000",
 ];
 app.use(
   cors({
-    origin: allowedOrigins, // Replace with your allowed origin(s)
+    origin: allowedOrigins, 
     methods: "GET,PUT,POST,DELETE",
-    credentials: true, // Enable cookies and other credentials
+    credentials: true, 
   })
 );
 
