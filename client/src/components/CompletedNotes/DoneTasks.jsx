@@ -20,7 +20,7 @@ function DoneTasks() {
 
   const handleDelete = (noteId) => {
     if (window.confirm(`${noteId} will be deleted.`)) {
-      deleteNote(noteId, dispatch, user, userDispatch);
+      deleteNote(noteId, dispatch, user, userDispatch).then(() => {}).catch(err=>{});
     }
   };
 

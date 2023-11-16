@@ -7,6 +7,12 @@ export const loginSchema = Yup.object({
   password: Yup.string().required("Enter your password"),
 });
 
+export const commentSchema = Yup.object({
+  comment_text: Yup.string()
+    .min(10, "too short...")
+    .required("field can't be empty"),
+});
+
 export const registerSchema = Yup.object({
   username: Yup.string().min(3).max(20).required("Please enter your username"),
   email: Yup.string().email().required("Please enter your email"),

@@ -1,6 +1,7 @@
 import React from "react";
 import TaskComp from "../../components/AddTask/TaskComp";
 import Featured from "../../components/FeaturedNotes/Featured";
+import Footer from "../../components/Footer/Footer";
 
 function Home() {
   return (
@@ -10,6 +11,7 @@ function Home() {
         Newly Added Tasks...
       </h2>
       <Featured />
+      <Footer />
     </div>
   );
 }

@@ -29,7 +29,7 @@ function EditNote() {
 
   const handleDelete = (noteId) => {
     if (window.confirm(`${noteId} will be deleted.`)) {
-      deleteNote(noteId, dispatch, user, userDispatch);
+      deleteNote(noteId, dispatch, user, userDispatch).then(() => {}).catch(err=>{});
       navigate("/allnotes");
     }
   };
@@ -80,7 +80,7 @@ function EditNote() {
             setMessage("");
           }, 2000);
         });
-      updateUser(user, userDispatch);
+      updateUser(user, userDispatch).then(res => {}).catch(err => {});
     },
   });
 

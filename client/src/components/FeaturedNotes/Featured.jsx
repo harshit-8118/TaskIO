@@ -8,13 +8,17 @@ function Featured() {
   const { notes } = useContext(NotesContext);
   const { user } = useContext(AuthContext);
   const [featureNotes, setFNotes] = useState([]);
+  const [isLoading, setIsLoading] = useState(user && user.notes.length > 0? true: false);
   useEffect(() => {
     setFNotes(notes.slice(0, Math.min(4, notes.length)));
+    if(notes.length)
+      setIsLoading(false)
   }, [user, notes]);
   return (
     <div className="outer-featured">
       <div className="featured-container">
-        { featureNotes.length &&
+        {isLoading ? <h3 style={{margin: "10px", color: "#00a5ec"}}>{"Loading..."}</h3>: null}
+        { featureNotes.length ?
           featureNotes.map(
             (note, ind) =>
               note && (
@@ -66,7 +70,7 @@ function Featured() {
                   </div>
                 </div>
               )
-          )}
+          ):null}
       </div>
     </div>
   );

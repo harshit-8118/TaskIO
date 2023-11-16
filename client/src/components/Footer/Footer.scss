@@ -1,0 +1,168 @@
+@import '../../main.scss';
+.footer{
+        width: 100%;
+        margin-top: 50px;
+        background-color: #f1f1f1;
+        padding: 10px;
+        position: relative;
+        min-width: 280px;
+        .footer-heading{
+            color: green;
+            align-self: self-end;
+            font-size: 22px;
+            @include sm-screen{
+                align-self: self-start;
+            }
+            @include xsm-screen{
+                align-self: self-start;
+            }
+            @include md-screen{
+                align-self: self-start;
+            }
+        }
+        .footer-msg{
+            background-color: #58c9fa;
+            padding: 10px 16px;
+            width:max-content;
+            align-self: start;
+            color: white;
+            position: absolute;
+            font-size: 14px;
+            top: 0px;
+            left: 20px;
+            z-index: 100;
+            @include sm-screen{
+                top: 0px;
+                right: 20px;
+            }
+            @include xsm-screen{
+                top: 0px;
+                right: 20px;
+            }
+            @include md-screen{
+                top: 0px;
+                right: 20px;
+            }
+        }
+        .comment-form-container{
+            @include flex-column;
+            .comment-form{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                border: none;
+                align-items: flex-end;
+                width: 100%;
+                padding: 10px;
+                margin: 5px 0px;
+                @include sm-screen{
+                    @include flex-column;
+                    font-size: 14px;
+                }
+                @include xsm-screen{
+                    @include flex-column;
+                    font-size: 14px;
+                }
+                @include md-screen{
+                    @include flex-column;
+                    font-size: 14px;
+                }
+                input{
+                    padding: 10px 0px 3px 0px;
+                    width: 20%;
+                    height: 2rem;
+                    outline: none;
+                    margin-left: 20px;
+                    border: none;
+                    border-bottom: 1px solid black;
+                    background-color: inherit;
+                    @include sm-screen{
+                        width: 100%;
+                        margin-left: 0px;
+                    }
+                    @include xsm-screen{
+                        width: 100%;
+                        margin-left: 0px;
+                    }
+                    @include md-screen{
+                        width: 100%;
+                        margin-left: 0px;
+                    }
+                }
+                .input-form{
+                    width: 40%;
+                    margin-left: 20px;
+                    @include sm-screen{
+                        margin-left: 0px;
+                        width: 100%;
+                    }
+                    @include xsm-screen{
+                        margin-left: 0px;
+                        width: 100%;
+                    }
+                    @include md-screen{
+                        margin-left: 0px;
+                        width: 100%;
+                    }
+                    textarea{
+                        width: 100%;
+                        padding: 5px;
+                        outline: none;
+                        border: none;
+                        resize: none;
+                        min-height: 80px;
+                        max-height: 100px;
+                    }
+                    .form-error{
+                        color: red;
+                        font-size: 10px;
+                    }
+                }
+                button{
+                    background-color: #00a5ec;
+                    border: none;
+                    padding: 15px 20px;
+                    width: 15%;
+                    margin-left: 20px;
+                    cursor: pointer;
+                    color: white;
+                    &:hover{
+                        background-color: #209fd6;
+                    }
+                    @include sm-screen{
+                        width: 100%;
+                        margin-left: 0px;
+                    }
+                    @include xsm-screen{
+                        width: 100%;
+                        margin-left: 0px;
+                    }
+                    @include md-screen{
+                        width: 100%;
+                        margin-left: 0px;
+                    }
+                }
+            }
+        }
+    .footer-body{
+        margin-top: 20px;
+        @include flex-column;
+        .footer-heading{
+            align-self: center;
+        }
+        .social-links{
+            @include flex-center;
+            margin: 4px 0px;
+            cursor: pointer;
+        }   
+        a{
+            @include flex-center;
+            border: 1px solid black;
+            padding: 3px;
+            margin: 2px;
+            &:hover{
+                background-color: #e0e0e0;
+            }
+        }
+    }
+}

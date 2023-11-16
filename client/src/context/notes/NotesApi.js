@@ -24,9 +24,13 @@ export const setInitialNotes = (noteId, dispatch) => {
   return new Promise(async (resolve, reject) => {
     dispatch(setInitialNotesStart());
     try {
-      const res = await axios.get(baseUrl + `notes/find/${noteId}`);
-      dispatch(setInitialNotesSuccess(res.data));
-      resolve(res.data);
+      await axios
+        .get(baseUrl + `notes/find/${noteId}`)
+        .then((res) => {
+          dispatch(setInitialNotesSuccess(res.data));
+          resolve(res.data);
+        })
+        .catch((err) => {reject(err)});
     } catch (err) {
       dispatch(setInitialNotesFailure());
       reject(err);
@@ -45,9 +49,10 @@ export const getNotes = (userID, dispatch) => {
   return new Promise(async (resolve, reject) => {
     dispatch(getNotesStart());
     try {
-      const res = await axios.get(baseUrl + `notes/user/${userID}`);
-      dispatch(getNotesSuccess(res.data));
-      resolve(res.data);
+      await axios.get(baseUrl + `notes/user/${userID}`).then((res) => {
+        dispatch(getNotesSuccess(res.data));
+        resolve(res.data);
+      }).catch(err=>{reject(err)});
     } catch (err) {
       dispatch(getNotesFailure());
       reject(err);
@@ -59,10 +64,15 @@ export const createNote = (note, user, dispatch, userDispatch) => {
   return new Promise(async (resolve, reject) => {
     dispatch(createNoteStart());
     try {
-      const res = await axios.post(baseUrl + `notes/register`, note);
-      dispatch(createNoteSuccess(res.data));
-      updateUser(user, userDispatch, res.data._id);
-      resolve(res.data);
+      await axios.post(baseUrl + `notes/register`, note).then(resp => {
+        updateUser(user, userDispatch, resp.data._id).then((res) => {
+          dispatch(createNoteSuccess(resp.data));
+          resolve(resp.data)
+        }).catch(err => {
+          deleteNote(resp.data._id, dispatch, user, userDispatch);  
+          reject(err);
+        });
+      }).catch(err=>{reject(err)});
     } catch (err) {
       dispatch(createNoteFailure());
       reject(err);
@@ -74,9 +84,10 @@ export const updateNote = (note, dispatch) => {
   return new Promise(async (resolve, reject) => {
     dispatch(updateNoteStart());
     try {
-      const res = await axios.put(baseUrl + `notes/${note._id}`, note);
-      dispatch(updateNoteSuccess(res.data));
-      resolve(res.data);
+      await axios.put(baseUrl + `notes/${note._id}`, note).then(res => {
+        dispatch(updateNoteSuccess(res.data));
+        resolve(res.data);
+      }).catch(err=>{reject(err)});
     } catch (err) {
       dispatch(updateNoteFailure());
       reject(err);
@@ -88,9 +99,10 @@ export const updateNoteDone = (note, dispatch) => {
   return new Promise(async (resolve, reject) => {
     dispatch(updateNoteStart());
     try {
-      const res = await axios.put(baseUrl + `notes/markdone/${note._id}`, note);
-      dispatch(updateNoteSuccess(res.data));
-      resolve(res.data);
+      await axios.put(baseUrl + `notes/markdone/${note._id}`, note).then(res => {
+        dispatch(updateNoteSuccess(res.data));
+        resolve(res.data);
+      }).catch(err=>{reject(err)});
     } catch (err) {
       dispatch(updateNoteFailure());
       reject(err);
@@ -102,9 +114,10 @@ export const updateNoteImp = (note, dispatch) => {
   return new Promise(async (resolve, reject) => {
     dispatch(updateNoteStart());
     try {
-      const res = await axios.put(baseUrl + `notes/markimp/${note._id}`, note);
-      dispatch(updateNoteSuccess(res.data));
-      resolve(res.data);
+      await axios.put(baseUrl + `notes/markimp/${note._id}`, note).then(res => {
+        dispatch(updateNoteSuccess(res.data));
+        resolve(res.data);
+      }).catch(err=>{reject(err)});
     } catch (err) {
       dispatch(updateNoteFailure());
       reject(err);
@@ -118,9 +131,10 @@ export const deleteNote = (noteID, dispatch, user, userDispatch) => {
     try {
       updateNoteUser(user, userDispatch, noteID)
         .then(async () => {
-          await axios.delete(baseUrl + `notes/${noteID}`);
-          dispatch(deleteNoteSuccess(noteID));
-          resolve();
+          await axios.delete(baseUrl + `notes/${noteID}`).then(res => {
+            dispatch(deleteNoteSuccess(noteID));
+            resolve();
+          }).catch(err=>{reject(err)});
         })
         .catch((err) => {
           dispatch(deleteNoteFailure());

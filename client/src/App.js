@@ -15,8 +15,8 @@ import { NotesContext } from "./context/notes/NotesContext";
 import Settings from "./components/Settings/Settings";
 import ViewNote from "./components/ViewNote/ViewNote";
 import EditNote from "./components/EditNote/EditNote";
-import ImpTasks from "./components/ImportantNotes/ImpTasks";
-import DoneTasks from "./components/CompletedNotes/DoneTasks";
+// import ImpTasks from "./components/ImportantNotes/ImpTasks";
+// import DoneTasks from "./components/CompletedNotes/DoneTasks";
 import Navbar from "./components/Navbar/Navbar";
 import Notes from "./components/Notes/Notes";
 
@@ -29,12 +29,12 @@ function App() {
     try {
       cleanNoteOnLogout(dispatch);
       user.notes.forEach((note_id) => {
-        setInitialNotes(note_id, dispatch);
+        setInitialNotes(note_id, dispatch).then(res=>{}).catch(err=>{});
       });
     } catch (err) {}
   }, [user, dispatch]);
   return (
-    <div className="App">
+    <div className="App" style={{position:"relative"}}>
       <Router>
         {user && <Navbar />}
         <div className="other">
@@ -76,4 +76,5 @@ function App() {
 }
 
 export default App;
-export const baseUrl = process.env.REACT_APP_ADDNOTE_BACKENED_URL + "/api/";
+// export const baseUrl = process.env.REACT_APP_ADDNOTE_BACKENED_URL + "/api/";
+export const baseUrl = "http://localhost:5500/api/";
