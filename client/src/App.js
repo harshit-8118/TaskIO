@@ -78,5 +78,5 @@ function App() {
 }
 
 export default App;
-export const baseUrl = process.env.REACT_APP_ADDNOTE_BACKENED_URL + "/api/";
-// export const baseUrl = "http://localhost:5500/api/";
+// export const baseUrl = process.env.REACT_APP_ADDNOTE_BACKENED_URL + "/api/";
+export const baseUrl = "http://localhost:5500/api/";

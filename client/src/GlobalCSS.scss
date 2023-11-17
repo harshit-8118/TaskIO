@@ -19,6 +19,25 @@
     top: 0;
     right: 0;
   }
+  .google-register{
+    margin: 50px auto;
+    @include flex-center;
+    cursor: pointer;
+    button{
+      cursor: pointer;
+      font-size: 18px;
+      @include flex-center;
+      width: 280px;
+      padding: 20px;
+      border: none;
+      p{
+        margin-left: 5px;
+      }
+      &:hover{
+        background-color: #b8b8b8;
+      }
+    }
+  }
   .loginModal {
     width: 100%;
     border: 1px solid black;

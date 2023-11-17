@@ -89,7 +89,6 @@ function Login({ loginBtn, registerBtn, setLoginBtn, setRegisterBtn }) {
         <div className="input-block">
           <input
             type="password"
-            autoComplete="off"
             name="password"
             id="password"
             placeholder="password"

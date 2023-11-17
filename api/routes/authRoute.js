@@ -81,8 +81,8 @@ router.put("/resetpass", async (req, res) => {
       $and: filter,
     })
       .then(async (user) => {
-        if(!user){
-          res.status(401).json("failed to reset.")
+        if (!user) {
+          res.status(401).json("failed to reset.");
           return;
         }
         req.body.password = CryptoJS.AES.encrypt(
@@ -102,7 +102,6 @@ router.put("/resetpass", async (req, res) => {
           });
       })
       .catch((err) => {
-        console.log(err)
         res.status(401).json("username doesn't exists.");
       });
   } catch (err) {

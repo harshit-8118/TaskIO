@@ -14,7 +14,7 @@ export const commentSchema = Yup.object({
 });
 
 export const registerSchema = Yup.object({
-  username: Yup.string().min(3).max(20).required("Please enter your username"),
+  // username: Yup.string().min(3).max(20).required("Please enter your username"),
   email: Yup.string().email().required("Please enter your email"),
   password: Yup.string().required("Please enter your password"),
   confirm_password: Yup.string()
