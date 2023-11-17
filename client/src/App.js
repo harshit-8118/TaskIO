@@ -15,8 +15,6 @@ import { NotesContext } from "./context/notes/NotesContext";
 import Settings from "./components/Settings/Settings";
 import ViewNote from "./components/ViewNote/ViewNote";
 import EditNote from "./components/EditNote/EditNote";
-// import ImpTasks from "./components/ImportantNotes/ImpTasks";
-// import DoneTasks from "./components/CompletedNotes/DoneTasks";
 import Navbar from "./components/Navbar/Navbar";
 import Notes from "./components/Notes/Notes";
 import ResetPass from "./pages/ResetPassword/ResetPass";
@@ -26,16 +24,18 @@ function App() {
   const { dispatch } = useContext(NotesContext);
 
   useEffect(() => {
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = "auto";
     try {
       cleanNoteOnLogout(dispatch);
       user.notes.forEach((note_id) => {
-        setInitialNotes(note_id, dispatch).then(res=>{}).catch(err=>{});
+        setInitialNotes(note_id, dispatch)
+          .then((res) => {})
+          .catch((err) => {});
       });
     } catch (err) {}
   }, [user, dispatch]);
   return (
-    <div className="App" style={{position:"relative"}}>
+    <div className="App" style={{ position: "relative" }}>
       <Router>
         {user && <Navbar />}
         <div className="other">
@@ -50,17 +50,7 @@ function App() {
               element={user ? <AllNotes /> : <Landing />}
             />
             <Route path="/notes" element={user ? <Notes /> : <Landing />} />
-            <Route path="/resetpass" element={ <ResetPass /> } />
-            {/* <Route 
-              path="/impnotes1"
-              element={user ? <ImpTasks /> : <Landing />}
-            />
-            <Route
-              path="/impnotes0"
-              element={user ? <ImpTasks /> : <Landing />}
-            />
-            <Route path="/done1" element={user ? <DoneTasks /> : <Landing />} />
-            <Route path="/done0" element={user ? <DoneTasks /> : <Landing />} /> */}
+            <Route path="/resetpass" element={<ResetPass />} />
             <Route
               path="/view/:id"
               element={user ? <ViewNote /> : <Landing />}
@@ -78,5 +68,5 @@ function App() {
 }
 
 export default App;
-// export const baseUrl = process.env.REACT_APP_ADDNOTE_BACKENED_URL + "/api/";
-export const baseUrl = "http://localhost:5500/api/";
+export const baseUrl = process.env.REACT_APP_ADDNOTE_BACKENED_URL + "/api/";
+// export const baseUrl = "http://localhost:5500/api/";

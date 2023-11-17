@@ -38,36 +38,6 @@ function Navbar() {
           >
             ALL
           </Link>
-          {/* 
-          // improved UI with filters instead links...
-          <Link
-            to={"/impnotes1"}
-            state={{ imp: true }}
-            className={`link ${isActiveLink("/impnotes1") && "active"}`}
-          >
-            Important
-          </Link>
-          <Link
-            to={"/impnotes0"}
-            state={{ imp: false }}
-            className={`link ${isActiveLink("/impnotes0") && "active"}`}
-          >
-            !Important
-          </Link>
-          <Link
-            to={"/done0"}
-            state={{ don: false }}
-            className={`link ${isActiveLink("/done1") && "active"}`}
-          >
-            Incomplete
-          </Link>
-          <Link
-            to={"/done1"}
-            state={{ don: true }}
-            className={`link ${isActiveLink("/done0") && "active"}`}
-          >
-            Completed
-          </Link> */}
           <Link
             to={"/notes"}
             state={{ don: true }}
