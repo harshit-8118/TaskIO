@@ -26,6 +26,9 @@ app.use(
   })
 );
 
+app.use("/", (req, res) => {
+  res.send('Hello server');  
+});
 app.use("/api/user", UserRoute);
 app.use("/api/notes", NoteRoute);
 app.use("/api/auth", AdminRoute);
