@@ -26,7 +26,7 @@ app.use(
   })
 );
 
-app.use("/", (req, res) => {
+app.use("/checkserver", (req, res) => {
   res.send('Hello server');  
 });
 app.use("/api/user", UserRoute);
